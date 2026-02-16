@@ -1,11 +1,16 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom"
 import Userlayout from "./components/layout/userlayout"
+import Home from "./pages/Home"
+import {Toaster} from "sonner"
 function App() {
   
   return (
-    <BrowserRouter>
+    <BrowserRouter future={{v7_startTransition: true, v7_relativeSplatPath: true}}>
+    <Toaster position="top-right" />
       <Routes>
-        <Route path="/" element={ <Userlayout /> }></Route>
+        <Route path="/" element={ <Userlayout /> }>
+          <Route index element={<Home />}/>
+        </Route>
         <Route></Route>
       </Routes>
     </BrowserRouter>

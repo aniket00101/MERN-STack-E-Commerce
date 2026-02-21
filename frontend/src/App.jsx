@@ -1,5 +1,5 @@
 import {BrowserRouter, Route, Routes} from "react-router-dom"
-import Userlayout from "./components/layout/userlayout"
+import UserLayout from "./components/layout/UserLayout"
 import Home from "./pages/Home"
 import {Toaster} from "sonner"
 import Login from "./pages/login"
@@ -23,7 +23,7 @@ function App() {
     <BrowserRouter future={{v7_startTransition: true, v7_relativeSplatPath: true}}>
     <Toaster position="top-right" />
       <Routes>
-        <Route path="/" element={ <Userlayout /> }>
+        <Route path="/" element={ <UserLayout /> }>
           <Route index element={<Home />}/>
           <Route path="login" element={<Login />} />
           <Route path="register" element={<Register />} />

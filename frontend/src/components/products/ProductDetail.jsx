@@ -24,7 +24,7 @@ import ProductGrid from './ProductGrid'
 
 const ProductDetail = () => {
 
-    const [mainImage, setMainImage] = useState("")
+    const [mainImage, setMainImage] = useState(selectedProduct?.images?.[0]?.url || null)
     const [selectedSize, setSelectedSize] = useState("")
     const [selectedColor, setSelectedColor] = useState("")
     const [quantity, setQuantity] = useState(1)

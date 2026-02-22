@@ -1,26 +1,64 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const ProductGrid = ({product}) => {
+const ProductGrid = ({ product }) => {
   return (
-    <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6'>
-        {product.map((product, index) => (
-            
-            <Link key={product._id} to={`/product/${product._id}`} className='block'>
-                <div className='bg-white p-4 rounded-lg'>
-                    <div className=' w-full h-96 mb-4'>
-                        
-                        <img src={product.images?.[0]?.url} alt={product.images?.[0]?.altText || product.name} className='w-full h-full object-cover rounded-lg'/>
+    <div className="grid 
+      grid-cols-1 
+      sm:grid-cols-2 
+      md:grid-cols-3 
+      xl:grid-cols-4 
+      gap-6">
 
-                    </div>
+      {product.map((item) => (
+        <Link
+          key={item._id}
+          to={`/product/${item._id}`}
+          className="group block"
+        >
+          <div className="bg-white/5 backdrop-blur-xl 
+          border border-white/10 
+          rounded-2xl p-4 
+          shadow-lg 
+          hover:shadow-2xl 
+          hover:scale-[1.02] 
+          transition-all duration-300">
 
-                    <h3 className='text-sm mb-2'>{product.name}</h3>
+            {/* Image */}
+            <div className="w-full h-72 sm:h-80 md:h-72 xl:h-80 
+            overflow-hidden rounded-xl mb-4">
 
-                    <p className='text-gray-500 font-medium text-sm tracking-tighter'> $ {product.price} </p>
+              <img
+                src={item.images?.[0]?.url}
+                alt={item.images?.[0]?.altText || item.name}
+                className="w-full h-full object-cover 
+                group-hover:scale-110 
+                transition-transform duration-500"
+              />
 
-                </div>
-            </Link>
-        ))}
+            </div>
+
+            {/* Product Name */}
+            <h3 className="text-gray-200 font-medium 
+            text-sm sm:text-base 
+            mb-2 group-hover:text-white 
+            transition-colors duration-300">
+
+              {item.name}
+
+            </h3>
+
+            {/* Price */}
+            <p className="text-purple-400 font-semibold 
+            text-sm sm:text-base">
+
+              ${item.price}
+
+            </p>
+
+          </div>
+        </Link>
+      ))}
     </div>
   )
 }

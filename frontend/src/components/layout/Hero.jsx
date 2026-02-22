@@ -1,27 +1,28 @@
-import React from 'react'
-import heroImg from "../../assets/rabbit-hero.webp"
-import { Link } from 'react-router-dom'
+import React from "react";
+import heroImg from "../../assets/rabbit-hero.webp";
+import { Link } from "react-router-dom";
+
 const Hero = () => {
   return (
-    <section className='relative'>
+    <section className="relative w-full">
 
-        <img src={heroImg} alt="Rabbit" className='w-full h-[400px] md:h-[600px] lg:h-[750px] object-cover'/>
+      <img src={heroImg} alt="Rabbit" className="w-full h-[350px] sm:h-[450px] md:h-[600px] lg:h-[750px] object-cover" />
 
-        <div className='absolute inset-0 bg-black/30 bg-opacity-5 flex items-center justify-center'>
-            
-            <div className='text-center text-white p-6'>
+      <div className="absolute inset-0 bg-black/40 flex items-center justify-center px-4">
 
-                <h1 className='text-4xl md:text-9xl font-bold tracking-tighter uppercase mb-4'> Vacation <br /> Ready </h1>
+        <div className="text-center text-white max-w-4xl">
 
-                <p className='text-sm tracking-tighter md:text-lg mb-6'>Explore our vacation-ready outfits with fast worldwide shipping.</p>
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-bold uppercase leading-tight mb-4"> Vacation <br /> Ready </h1>
 
-                <Link to="#" className='bg-white text-gray-950 px-6 py-2 rounded-sm text-lg'>Shop Now</Link>
+          <p className="text-xs sm:text-sm md:text-lg lg:text-xl mb-6"> Explore our vacation-ready outfits with fast worldwide shipping. </p>
 
-            </div>
+          <Link to="#" className="inline-block bg-white text-gray-900 px-5 py-2 sm:px-6 sm:py-3 text-sm sm:text-base md:text-lg rounded hover:bg-gray-200 transition duration-300"> Shop Now </Link>
+
         </div>
+      </div>
 
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

@@ -3,26 +3,68 @@ import MyOrderPage from './MyOrderPage'
 
 const Profile = () => {
   return (
-    <div className='min-h-screen flex flex-col'>
-        <div className='flex-grow container mx-auto p-4 md:p-6'>
-            <div className='flex flex-col md:flex-row md:space-x-6 space-y-6 md:space-y-0'>
+    <div className="min-h-screen bg-gradient-to-br 
+    from-gray-950 via-slate-900 to-black text-white">
 
-                <div className='w-full md:w-1/3 lg:w-1/4 shadow-md rounded-lg p-6'>
+      <div className="container mx-auto px-4 py-8">
 
-                    <h1 className='text-2xl md:text-3xl font-bold mb-4'>John Doe</h1>
+        <div className="flex flex-col lg:flex-row gap-8">
 
-                    <p className='text-lg text-gray-600 mb-4'>John@example.com</p>
+          {/* Profile Card */}
+          <div className="w-full lg:w-1/4 
+          bg-white/5 backdrop-blur-2xl 
+          border border-white/10 
+          rounded-3xl p-6 shadow-2xl">
 
-                    <button className='w-full bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600'> Logout</button>
+            <div className="flex flex-col items-center text-center">
 
-                </div>
+              {/* Avatar */}
+              <div className="w-24 h-24 rounded-full 
+              bg-gradient-to-r from-purple-600 to-blue-600 
+              flex items-center justify-center text-3xl font-bold mb-4 shadow-lg">
+                JD
+              </div>
 
-                <div className='w-full md:w-2/3 lg:w-3/4'>
-                    <MyOrderPage />
-                </div>
+              <h1 className="text-2xl font-bold mb-2">
+                John Doe
+              </h1>
+
+              <p className="text-gray-400 mb-6">
+                john@example.com
+              </p>
+
+              <button className="w-full bg-gradient-to-r 
+              from-red-600 to-red-700 
+              hover:from-red-500 hover:to-red-600 
+              py-3 rounded-xl font-semibold 
+              transition-all duration-300 
+              hover:scale-105 active:scale-95 shadow-lg">
+                Logout
+              </button>
 
             </div>
+          </div>
+
+          {/* Orders Section */}
+          <div className="w-full lg:w-3/4 
+          bg-white/5 backdrop-blur-2xl 
+          border border-white/10 
+          rounded-3xl p-6 shadow-2xl">
+
+            <h2 className="text-2xl font-bold mb-6 
+            bg-gradient-to-r from-blue-400 to-purple-400 
+            bg-clip-text text-transparent">
+              My Orders
+            </h2>
+
+            <MyOrderPage />
+
+          </div>
+
         </div>
+
+      </div>
+
     </div>
   )
 }

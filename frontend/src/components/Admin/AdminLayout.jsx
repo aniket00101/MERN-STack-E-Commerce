@@ -4,31 +4,55 @@ import AdminSideBar from './AdminSideBar'
 import { Outlet } from 'react-router-dom'
 
 const AdminLayout = () => {
-  const [isSideBarOPen, setIsSideBarOpen] = useState(false)
+  const [isSideBarOpen, setIsSideBarOpen] = useState(false)
 
-  const toogleSidebar = () => {
-    setIsSideBarOpen(!isSideBarOPen)
+  const toggleSidebar = () => {
+    setIsSideBarOpen(!isSideBarOpen)
   }
 
   return (
-    <div className='min-h-screen flex flex-col md:flex-row relative'>
-      <div className='flex md:hidden p-4 bg-gray-900 text-white z-20'>
-        
-        <button onClick={toogleSidebar}>  <FaBars size={24} />  </button>
+    <div className="min-h-screen flex flex-col md:flex-row bg-[#0f172a] text-gray-200 relative">
 
-        <h1 className='ml-4 text-xl font-medium'>Admin Dashboard</h1>
+      {/* Mobile Top Bar */}
+      <div className="flex md:hidden items-center p-4 bg-[#1e293b] border-b border-gray-700 z-20">
+        <button 
+          onClick={toggleSidebar}
+          className="text-gray-300 hover:text-white transition"
+        >
+          <FaBars size={24} />
+        </button>
 
+        <h1 className="ml-4 text-xl font-semibold tracking-wide">
+          Admin Dashboard
+        </h1>
       </div>
 
-      { isSideBarOPen && (
-        <div className='fixed inset-0 z-10 bg-black bg-opacity-50 md:hidden' onClick={toogleSidebar}></div>
+      {/* Overlay for mobile */}
+      {isSideBarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-10 md:hidden"
+          onClick={toggleSidebar}
+        />
       )}
 
-      <div className={`bg-gray-900 w-64 min-h-screen text-white absolute md:relative transform ${isSideBarOPen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 md:translate-x-0 md:static md:block z-20`}> <AdminSideBar /> </div>
-
-      <div className='flex-grow p-6 overflow-auto'>
-        <Outlet />
+      {/* Sidebar */}
+      <div
+        className={`bg-[#111827] w-64 min-h-screen border-r border-gray-800 
+        absolute md:relative transform 
+        ${isSideBarOpen ? "translate-x-0" : "-translate-x-full"} 
+        transition-transform duration-300 
+        md:translate-x-0 md:static md:block z-20`}
+      >
+        <AdminSideBar />
       </div>
+
+      {/* Main Content */}
+      <div className="flex-grow p-6 overflow-auto bg-[#0f172a]">
+        <div className="bg-[#1e293b] rounded-2xl p-6 shadow-lg border border-gray-800 min-h-[calc(100vh-48px)]">
+          <Outlet />
+        </div>
+      </div>
+
     </div>
   )
 }

@@ -22,48 +22,105 @@ const CartContent = () => {
       image: "https://picsum.photos/200?random=2"
     },
   ]
+
   return (
-    <div>
-      {
-        cartProducts.map((product, index) => (
+    <div className="space-y-5">
+      {cartProducts.map((product, index) => (
 
-          <div key={index} className='flex items-center justify-between py-4 border-b'>
+        <div 
+          key={index} 
+          className="
+            flex items-center justify-between
+            p-4 rounded-2xl
+            bg-white/5
+            backdrop-blur-lg
+            border border-white/10
+            shadow-lg
+            hover:bg-white/10
+            transition
+          "
+        >
 
-            <div className='flex items-start'>
+          {/* Left Section */}
+          <div className='flex items-start gap-4'>
 
-              <img src={product.image} alt={product.name} className='w-20 h-24 object-cover mr-4 rounded'/>
+            <img 
+              src={product.image} 
+              alt={product.name} 
+              className='w-20 h-24 object-cover rounded-xl shadow-md'
+            />
 
-              <div>
+            <div>
 
-                <h3>{product.name}</h3>
+              {/* Product Name */}
+              <h3 className='
+                font-semibold text-lg
+                bg-gradient-to-r from-red-500 via-yellow-400 to-orange-500
+                bg-clip-text text-transparent
+              '>
+                {product.name}
+              </h3>
 
-                <p className='text-sm text-gray-500'> size: {product.size}, color: {product.color}</p>
+              {/* Details */}
+              <p className='text-sm text-gray-400 mt-1'>
+                Size: <span className="text-yellow-400">{product.size}</span> | 
+                Color: <span className="text-red-400">{product.color}</span>
+              </p>
 
-                <div className='flex items-center mt-2'>
+              {/* Quantity Controls */}
+              <div className='flex items-center mt-3'>
 
-                  <button className='border rounded px-2 py-1 text-xl font-medium'> - </button>
+                <button className='
+                  bg-white/10 hover:bg-white/20
+                  border border-white/20
+                  rounded-lg px-3 py-1
+                  text-lg font-medium
+                  transition
+                '>
+                  -
+                </button>
 
-                  <span className='mx-4'>{product.quantity}</span>
+                <span className='mx-4 text-yellow-400 font-semibold'>
+                  {product.quantity}
+                </span>
 
-                  <button className='border rounded px-2 py-1 text-xl font-medium'> + </button>
-
-                </div>
+                <button className='
+                  bg-white/10 hover:bg-white/20
+                  border border-white/20
+                  rounded-lg px-3 py-1
+                  text-lg font-medium
+                  transition
+                '>
+                  +
+                </button>
 
               </div>
 
             </div>
 
-            <div>
+          </div>
 
-              <p> $ {product.price.toLocaleString()} </p>
+          {/* Right Section */}
+          <div className='text-right'>
 
-              <button> <RiDeleteBin3Line className="h-6 w-6 mt-2 text-red-600"/> </button>
+            {/* Price */}
+            <p className='
+              font-semibold text-lg
+              text-red-400
+            '>
+              $ {product.price.toLocaleString()}
+            </p>
 
-            </div>
+            {/* Delete */}
+            <button className='mt-3 hover:text-red-500 transition'>
+              <RiDeleteBin3Line className="h-6 w-6 text-red-400" />
+            </button>
 
           </div>
-        ))
-      }
+
+        </div>
+
+      ))}
     </div>
   )
 }

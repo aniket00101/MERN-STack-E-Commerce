@@ -5,40 +5,81 @@ import { Link } from 'react-router-dom'
 
 const GenderCollections = () => {
   return (
-    <section className='py-16 px-4 lg:px-0'>
+    <section className="relative py-20 px-4 lg:px-0 
+    bg-[#0F1E33] overflow-hidden">
 
-        <div className='container mx-auto flex flex-col md:flex-row gap-8'>
+      {/* Background Glow Effects */}
+      {/* <div className="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] 
+      bg-purple-600/20 rounded-full blur-[120px]"></div>
 
-            <div className='relative flex-1'>
-                
-                <img src={women} alt="Women collection" className='w-full h-[700px] object-cover'/>
+      <div className="absolute bottom-[-10%] right-[-10%] w-[400px] h-[400px] 
+      bg-blue-600/20 rounded-full blur-[120px]"></div> */}
 
-                <div className='absolute bottom-8 left-8 bg-white bg-opacity-90 p-4'>
+      <div className="container relative z-10 mx-auto flex flex-col md:flex-row gap-10">
 
-                    <h2 className='text-2xl font-bold text-gray-900 mb-3'> Women's Collections </h2>
+        {/* Women Collection */}
+        <div className="relative flex-1 group overflow-hidden rounded-3xl 
+        border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl">
 
-                    <Link to="/collections/all?gender=Women" className='text-gray-900 underline'>Shop Now</Link>
+          <img
+            src={women}
+            alt="Women collection"
+            className="w-full h-[600px] object-cover 
+            group-hover:scale-110 transition-transform duration-700"
+          />
 
-                    
-                </div>
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/40"></div>
 
-            </div>
+          <div className="absolute bottom-10 left-10 z-10">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Women's Collections
+            </h2>
 
-            <div className='relative flex-1'>
-                
-                <img src={mens} alt="Men collection" className='w-full h-[700px] object-cover'/>
-
-                <div className='absolute bottom-8 left-8 bg-white bg-opacity-90 p-4'>
-
-                    <h2 className='text-2xl font-bold text-gray-900 mb-3'> Men's Collections </h2>
-
-                    <Link to="/collections/all?gender=Men" className='text-gray-900 underline'>Shop Now</Link>
-
-                </div>
-
-            </div>
-
+            <Link
+              to="/collections/all?gender=Women"
+              className="inline-block px-6 py-3 rounded-xl 
+              bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 
+              text-white font-semibold shadow-lg 
+              hover:scale-105 transition-all duration-300"
+            >
+              Shop Now →
+            </Link>
+          </div>
         </div>
+
+        {/* Men Collection */}
+        <div className="relative flex-1 group overflow-hidden rounded-3xl 
+        border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl">
+
+          <img
+            src={mens}
+            alt="Men collection"
+            className="w-full h-[600px] object-cover 
+            group-hover:scale-110 transition-transform duration-700"
+          />
+
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black/40"></div>
+
+          <div className="absolute bottom-10 left-10 z-10">
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Men's Collections
+            </h2>
+
+            <Link
+              to="/collections/all?gender=Men"
+              className="inline-block px-6 py-3 rounded-xl 
+              bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 
+              text-white font-semibold shadow-lg 
+              hover:scale-105 transition-all duration-300"
+            >
+              Shop Now →
+            </Link>
+          </div>
+        </div>
+
+      </div>
     </section>
   )
 }

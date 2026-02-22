@@ -2,45 +2,85 @@ import React, { useState } from 'react'
 import { HiMagnifyingGlass, HiMiniXMark } from 'react-icons/hi2'
 
 const SearchBar = () => {
-    const [searchTerm, setSearchTerm] = useState("")
-    const [isOpen, setIsOpen] = useState(false)
+  const [searchTerm, setSearchTerm] = useState("")
+  const [isOpen, setIsOpen] = useState(false)
 
-    const handleSearchToogle = () => {
-        setIsOpen(!isOpen)
-    }
+  const handleSearchToggle = () => {
+    setIsOpen(!isOpen)
+  }
 
-    const handleSearch = (e) => {
-        e.preventDefault()
-        console.log(searchTerm)
-        setIsOpen(false)
-    }
+  const handleSearch = (e) => {
+    e.preventDefault()
+    console.log(searchTerm)
+    setIsOpen(false)
+  }
 
   return (
-    <div className={`flex items-center justify-centerw-full transition-all duration-300 ${isOpen ? 'absolute top-0 left-0 w-full bg-white h-24 z-50' : "w-auto"}`}>
-        { isOpen ? (
-            <form onSubmit={handleSearch} className='relative flex items-center justify-center w-full'>
-                
-                <div className='relative w-1/2'>
-                    
-                    <input type="text" placeholder='Search' onChange={(e) => setSearchTerm(e.target.value)} value={searchTerm} className='bg-gray-100 px-4 py-2 pl-2 pr-12 rounded-lg focus:outline-none w-full placeholder:text-gray-700'/>
+    <div className="relative flex items-center">
 
-                    <button type="submit" className='absolute right-2 top-1/2 transform -translate-y-1/2 text-gray-600 hover:text-gray-800'>
-                        <HiMagnifyingGlass className='h-6 w-6'/>
-                    </button>
+      {isOpen ? (
+        <div className="
+          fixed inset-0 z-50
+          bg-black/60
+          backdrop-blur-md
+          flex items-start justify-center
+          pt-28 px-4
+          animate-fadeIn
+        ">
 
-                </div>
+          <form 
+            onSubmit={handleSearch}
+            className="relative w-full max-w-2xl"
+          >
+            <input
+              type="text"
+              placeholder="Search products, brands and more..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              autoFocus
+              className="
+                w-full
+                bg-[#0f172a]
+                text-white
+                border border-white/10
+                rounded-2xl
+                px-6 py-4
+                pr-14
+                focus:outline-none
+                focus:border-purple-500
+                transition
+              "
+            />
 
-                <button type="button" className='absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-600 hover:text-gray-800' onClick={handleSearchToogle}> 
-                    <HiMiniXMark className='h-6 w-6' /> 
-                </button>
-
-            </form>
-        ) : (
-            <button onClick={handleSearchToogle}>
-                <HiMagnifyingGlass className='h-6 w-6'/>
+            {/* Search Button */}
+            <button
+              type="submit"
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-purple-400 transition"
+            >
+              <HiMagnifyingGlass className="h-6 w-6" />
             </button>
-        )
-    }
+
+            {/* Close Button */}
+            <button
+              type="button"
+              onClick={handleSearchToggle}
+              className="absolute -top-14 right-2 text-white hover:text-purple-400 transition"
+            >
+              <HiMiniXMark className="h-8 w-8" />
+            </button>
+
+          </form>
+
+        </div>
+      ) : (
+        <button 
+          onClick={handleSearchToggle}
+          className="hover:text-purple-400 transition"
+        >
+          <HiMagnifyingGlass className="h-6 w-6" />
+        </button>
+      )}
+
     </div>
   )
 }

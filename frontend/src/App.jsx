@@ -49,5 +49,3 @@ function App() {
 
 export default App
 
-
-// rabbir-red : #ea2e0e

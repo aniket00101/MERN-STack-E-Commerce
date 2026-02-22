@@ -128,7 +128,8 @@ const FilterSideBar = () => {
 
   return (
     <div className="bg-white/5 backdrop-blur-xl border border-white/10 
-    p-6 rounded-2xl shadow-xl text-gray-200">
+p-6 rounded-2xl shadow-xl text-gray-200 
+h-screen overflow-y-auto scrollbar-thin scrollbar-thumb-purple-500">
 
       <h3 className="text-2xl font-semibold mb-6">Filters</h3>
 
@@ -177,11 +178,10 @@ const FilterSideBar = () => {
               key={color}
               onClick={() => handleColorSelect(color)}
               className={`w-8 h-8 rounded-full border 
-              transition-transform hover:scale-110 ${
-                filter.color === color
+              transition-transform hover:scale-110 ${filter.color === color
                   ? "ring-2 ring-purple-500 border-white"
                   : "border-gray-400"
-              }`}
+                }`}
               style={{ backgroundColor: color.toLowerCase() }}
             ></button>
           ))}

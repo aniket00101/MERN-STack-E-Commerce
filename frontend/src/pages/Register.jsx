@@ -35,7 +35,7 @@ const Register = () => {
                     <div className="text-center mb-8">
                         <h1 className="text-4xl font-black bg-gradient-to-r 
                         from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
-                            Rabbit
+                            NexMart
                         </h1>
 
                         <h2 className="text-2xl sm:text-3xl font-bold text-white mt-4">

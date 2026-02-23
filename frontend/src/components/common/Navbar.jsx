@@ -25,7 +25,7 @@ const Navbar = () => {
 
                 <div className='container mx-auto flex items-center justify-between py-4 px-6 text-gray-200'>
 
-                    <Link to="/" className='text-2xl font-semibold tracking-wide hover:text-purple-400 transition'> Rabbit </Link>
+                    <Link to="/" className='text-2xl font-semibold tracking-wide hover:text-purple-400 transition'> NexMart </Link>
 
                     <div className='hidden md:flex space-x-8 text-sm font-medium uppercase tracking-wide'>
                         <Link to="/collections/all" className='hover:text-purple-400 transition'>Men</Link>

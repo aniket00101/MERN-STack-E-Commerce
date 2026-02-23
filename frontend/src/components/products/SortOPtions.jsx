@@ -19,50 +19,26 @@ const SortOPtions = () => {
   }
 
   return (
-    <div className="flex flex-col sm:flex-row 
-    sm:items-center sm:justify-between 
-    gap-3 mb-6">
+    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6">
 
-      {/* Left Text */}
-      <p className="text-gray-400 text-sm sm:text-base">
-        Sort Products
-      </p>
-
-      {/* Dropdown */}
+      <p className="text-gray-400 text-sm sm:text-base"> Sort Products </p>
+ 
       <div className="relative w-full sm:w-64">
-        <select
-          id="sort"
-          onChange={handleSortChange}
-          value={searchParams.get("sortBy") || ""}
-          className="w-full appearance-none 
-          bg-white/5 backdrop-blur-xl
-          border border-white/10
-          text-gray-300
-          px-4 py-3 rounded-xl
-          focus:outline-none
-          focus:ring-2 focus:ring-purple-500
-          transition-all duration-300
-          cursor-pointer"
-        >
-          <option value="" className="bg-gray-900 text-white">
-            Default
-          </option>
-          <option value="priceAsc" className="bg-gray-900 text-white">
-            Price: Low to High
-          </option>
-          <option value="priceDesc" className="bg-gray-900 text-white">
-            Price: High to Low
-          </option>
-          <option value="popularity" className="bg-gray-900 text-white">
-            Popularity
-          </option>
+
+        <select id="sort" onChange={handleSortChange} value={searchParams.get("sortBy") || ""} className="w-full appearance-none bg-white/5 backdrop-blur-xl border border-white/10 text-gray-300 px-4 py-3 rounded-xl focus:outline-none focus:ring-2 focus:ring-purple-500 transition-all duration-300 cursor-pointer">
+
+          <option value="" className="bg-gray-900 text-white"> Default </option>
+
+          <option value="priceAsc" className="bg-gray-900 text-white"> Price: Low to High </option>
+
+          <option value="priceDesc" className="bg-gray-900 text-white"> Price: High to Low </option>
+
+          <option value="popularity" className="bg-gray-900 text-white"> Popularity </option>
+
         </select>
 
-        {/* Custom Arrow */}
-        <div className="pointer-events-none absolute inset-y-0 right-4 
-        flex items-center text-gray-400">
-          ▼
-        </div>
+        <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-gray-400"> ▼ </div>
+        
       </div>
     </div>
   )

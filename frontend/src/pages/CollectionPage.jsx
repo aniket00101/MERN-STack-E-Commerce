@@ -72,59 +72,26 @@ const CollectionPage = () => {
 
             <div className="flex relative">
 
-                {/* ===== Overlay (Mobile Only) ===== */}
                 {isSideBarOpen && (
-                    <div 
-                        className="fixed inset-0 bg-black/50 z-40 lg:hidden"
-                        onClick={() => setIsSideBarOpen(false)}
-                    />
+                    <div className="fixed inset-0 bg-black/50 z-40 lg:hidden" onClick={() => setIsSideBarOpen(false)}/>
                 )}
 
-                {/* ===== Sidebar ===== */}
-                <div
-                    ref={sidebarRef}
-                    className={`
-                        fixed inset-y-0 left-0 z-50 w-72
-                        bg-white/5 backdrop-blur-2xl 
-                        border-r border-white/10
-                        transform transition-transform duration-300
-                        ${isSideBarOpen ? "translate-x-0" : "-translate-x-full"}
-                        lg:static lg:translate-x-0
-                    `}
-                >
-                    <FilterSideBar />
-                </div>
+                <div ref={sidebarRef} className={`fixed inset-y-0 left-0 z-50 w-72 bg-white/5 backdrop-blur-2xl border-r border-white/10 transform transition-transform duration-300 ${isSideBarOpen ? "translate-x-0" : "-translate-x-full"} lg:static lg:translate-x-0`} > <FilterSideBar /> </div>
 
-                {/* ===== Main Content ===== */}
                 <div className="flex-1 p-4 sm:p-6 lg:p-10">
 
-                    {/* Mobile Filter Button */}
                     <div className="lg:hidden mb-4">
-                        <button
-                            onClick={toggleSidebar}
-                            className="flex items-center gap-2 
-                            bg-white/10 hover:bg-white/20
-                            px-4 py-2 rounded-xl
-                            transition-all duration-300"
-                        >
+
+                        <button onClick={toggleSidebar} className="flex items-center gap-2 bg-white/10 hover:bg-white/20 px-4 py-2 rounded-xl transition-all duration-300">
                             <FaFilter />
                             Filters
                         </button>
                     </div>
 
-                    {/* Heading */}
-                    <h2 className="text-3xl font-bold mb-6 
-                    bg-gradient-to-r from-blue-400 to-purple-400 
-                    bg-clip-text text-transparent uppercase">
-                        All Collection
-                    </h2>
+                    <h2 className="text-3xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent uppercase"> All Collection </h2>
 
-                    {/* Sort Options */}
-                    <div className="mb-6">
-                        <SortOPtions />
-                    </div>
+                    <div className="mb-6"> <SortOPtions /> </div>
 
-                    {/* Product Grid */}
                     <ProductGrid product={product} />
 
                 </div>

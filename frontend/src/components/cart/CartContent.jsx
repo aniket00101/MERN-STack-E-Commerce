@@ -27,72 +27,29 @@ const CartContent = () => {
     <div className="space-y-5">
       {cartProducts.map((product, index) => (
 
-        <div 
-          key={index} 
-          className="
-            flex items-center justify-between
-            p-4 rounded-2xl
-            bg-white/5
-            backdrop-blur-lg
-            border border-white/10
-            shadow-lg
-            hover:bg-white/10
-            transition
-          "
-        >
+        <div key={index} className="flex items-center justify-between p-4 rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 shadow-lg hover:bg-white/10 transition">
 
-          {/* Left Section */}
           <div className='flex items-start gap-4'>
 
-            <img 
-              src={product.image} 
-              alt={product.name} 
-              className='w-20 h-24 object-cover rounded-xl shadow-md'
-            />
+            <img src={product.image} alt={product.name} className='w-20 h-24 object-cover rounded-xl shadow-md'/>
 
             <div>
 
-              {/* Product Name */}
-              <h3 className='
-                font-semibold text-lg
-                bg-gradient-to-r from-red-500 via-yellow-400 to-orange-500
-                bg-clip-text text-transparent
-              '>
-                {product.name}
-              </h3>
+              <h3 className=' font-semibold text-lg bg-gradient-to-r from-red-500 via-yellow-400 to-orange-500 bg-clip-text text-transparent'> {product.name}</h3>
 
-              {/* Details */}
               <p className='text-sm text-gray-400 mt-1'>
                 Size: <span className="text-yellow-400">{product.size}</span> | 
                 Color: <span className="text-red-400">{product.color}</span>
               </p>
 
-              {/* Quantity Controls */}
               <div className='flex items-center mt-3'>
 
-                <button className='
-                  bg-white/10 hover:bg-white/20
-                  border border-white/20
-                  rounded-lg px-3 py-1
-                  text-lg font-medium
-                  transition
-                '>
-                  -
-                </button>
+                <button className='bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg px-3 py-1 text-lg font-medium transition'> - </button>
 
-                <span className='mx-4 text-yellow-400 font-semibold'>
-                  {product.quantity}
-                </span>
+                <span className='mx-4 text-yellow-400 font-semibold'> {product.quantity} </span>
 
-                <button className='
-                  bg-white/10 hover:bg-white/20
-                  border border-white/20
-                  rounded-lg px-3 py-1
-                  text-lg font-medium
-                  transition
-                '>
-                  +
-                </button>
+                <button className='bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg px-3 py-1 text-lg font-medium transition
+                '>+</button>
 
               </div>
 
@@ -100,21 +57,11 @@ const CartContent = () => {
 
           </div>
 
-          {/* Right Section */}
           <div className='text-right'>
 
-            {/* Price */}
-            <p className='
-              font-semibold text-lg
-              text-red-400
-            '>
-              $ {product.price.toLocaleString()}
-            </p>
+            <p className='font-semibold text-lg text-red-400'> $ {product.price.toLocaleString()} </p>
 
-            {/* Delete */}
-            <button className='mt-3 hover:text-red-500 transition'>
-              <RiDeleteBin3Line className="h-6 w-6 text-red-400" />
-            </button>
+            <button className='mt-3 hover:text-red-500 transition'> <RiDeleteBin3Line className="h-6 w-6 text-red-400" /> </button>
 
           </div>
 

@@ -101,12 +101,18 @@ const EditProductPage = () => {
             </div>  
 
             <div className='mb-6'>
-                <label className='block font-semibold mb-2'>Upload Image</label>   
+
+                <label className='block font-semibold mb-2'>Upload Image</label> 
+
                 <input type="file" onChange={handleImageUpload} /> 
+
                 <div className='flex gap-4 mt-4'>
                     {productData.images.map((image, index) => (
+
                         <div key={index}>
+
                             <img src={image.url} alt={image.altText || "Product Image"} className='w-20 h-20 object-cover rounded-md shadow-md'/>
+                            
                         </div>
                     ))}
                 </div>

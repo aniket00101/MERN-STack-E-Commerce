@@ -12,7 +12,7 @@ const AdminSideBar = () => {
        
         <div className='mb-6'>
        
-            <Link to="/admin" className='text-2xl font-medium'>Rabbit</Link>
+            <Link to="/admin" className='text-2xl font-medium'>NexMart</Link>
        
         </div>
 

@@ -28,13 +28,13 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/users", userRoutes)
-app.use("/api/product", productRoutes)
+app.use("/api/products", productRoutes)
 app.use("/api/cart", cartRoutes)
 app.use("/api/checkout", checkoutRoutes)
 app.use("/api/orders", orderRoutes)
 app.use("/api/upload", uploadRoutes)
 app.use("/api/subscribe", subscribedRoutes)
-app.use("/api/admin", adminRoutes)
+app.use("/api/admin/users", adminRoutes)
 app.use("/api/admin/products", productAdminRoute)
 app.use("/api/admin/orders", adminorderRoute)
 

@@ -235,7 +235,7 @@ const Checkout = () => {
 
                     <div className="flex justify-between items-center text-xl mt-6 border-t border-gray-800 pt-6 font-semibold">
                         <p>Total</p>
-                        <p>${cart.totalPrice?.toLocaleString()}</p>
+                        <p>₹ {cart.totalPrice?.toLocaleString()}</p>
                     </div>
 
                 </div>

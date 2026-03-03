@@ -2,18 +2,25 @@ import React from 'react'
 import { IoMdClose } from 'react-icons/io'
 import CartContent from '../cart/CartContent'
 import { useNavigate } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const CartDrawer = ({ drawerOPen, toogleCartDrawer }) => {
   const navigate = useNavigate()
-
+  const { user, guestId } = useSelector((state) => state.auth)
+  const { cart } = useSelector((state) => state.cart)
+  const userId = user ? user._id : null
   const handleCheckout = () => {
     toogleCartDrawer()
-    navigate("/checkout")
+    if (!user) navigate("/login?redirect=checkout")
+    else navigate("/checkout")
   }
+  const subtotal = cart?.products?.reduce((total, product) => {
+  return total + product.price * product.quantity
+}, 0)
 
   return (
     <>
-      <div onClick={toogleCartDrawer} className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300 ${drawerOPen ? "opacity-100 visible" : "opacity-0 invisible"}`}/>
+      <div onClick={toogleCartDrawer} className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300 ${drawerOPen ? "opacity-100 visible" : "opacity-0 invisible"}`} />
 
       <div className={`fixed top-0 right-0 h-screen w-full sm:w-3/4 md:w-1/2 lg:w-[28rem] xl:w-[32rem] bg-[#0f172a] text-gray-200 shadow-[0_10px_40px_rgba(0,0,0,0.6)] transform transition-transform duration-300 flex flex-col z-50
         ${drawerOPen ? "translate-x-0" : "translate-x-full"}`}>
@@ -26,7 +33,13 @@ const CartDrawer = ({ drawerOPen, toogleCartDrawer }) => {
 
         </div>
 
-        <div className='flex-grow px-4 sm:px-6 py-4 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900 pb-24 sm:pb-4'> <CartContent /> </div>
+        <div className='flex-grow px-4 sm:px-6 py-4 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-700 scrollbar-track-gray-900 pb-24 sm:pb-4'>
+          {cart && cart?.products?.length > 0 ? (
+            <CartContent cart={cart} userId={userId} guestId={guestId} />
+          ) : (
+            <p>Your cart is empty..</p>
+          )}
+        </div>
 
         <div className='px-4 sm:px-6 py-6 border-t border-white/10 bg-[#0b1220]/95 backdrop-blur-sm sticky bottom-0 z-10 shrink-0'>
 
@@ -34,15 +47,19 @@ const CartDrawer = ({ drawerOPen, toogleCartDrawer }) => {
 
             <span className='text-sm sm:text-base font-medium text-gray-300'>Subtotal:</span>
 
-            <span className='text-xl sm:text-2xl font-bold text-white'>$99.99</span>
+            <span className='text-xl sm:text-2xl font-bold text-white'>${subtotal?.toFixed(2)}</span>
 
           </div>
-          
-          <button
-            onClick={handleCheckout} disabled={false} className='w-full bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 disabled:cursor-not-allowed py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'> Proceed to Checkout </button>
 
-          <p className='text-xs sm:text-sm text-gray-400 mt-3 text-center'> Shipping, taxes, and discounts calculated at checkout.</p>
-          
+          {cart && cart?.products?.length > 0 && (
+            <>
+              <button onClick={handleCheckout} disabled={false} className='w-full bg-purple-600 hover:bg-purple-700 disabled:bg-gray-600 disabled:cursor-not-allowed py-3 sm:py-4 rounded-xl font-semibold text-sm sm:text-base transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-0.5'> Proceed to Checkout </button>
+
+              <p className='text-xs sm:text-sm text-gray-400 mt-3 text-center'> Shipping, taxes, and discounts calculated at checkout.</p>
+            </>
+          )}
+
+
         </div>
       </div>
     </>

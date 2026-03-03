@@ -245,20 +245,6 @@ router.get("/new-arrivals", async (req, res) => {
     }
 })
 
-router.get("/:id", async(req, res) => {
-    try {
-        const product = await Product.findById(req.params.id);
-        if(product) {
-            res.json(product);
-        } else {
-            res.status(404).json({message: "Product not found"})
-        }
-    } catch (error) {
-        console.error(error)
-        res.status(500).send("Server error")
-    }
-})
-
 router.get("/similar/:id", async (req, res) => {
     const { id } = req.params
     
@@ -276,6 +262,20 @@ router.get("/similar/:id", async (req, res) => {
     } catch (error) {
         console.error(error)
         res.status(500).send("Server Error")
+    }
+})
+
+router.get("/:id", async(req, res) => {
+    try {
+        const product = await Product.findById(req.params.id);
+        if(product) {
+            res.json(product);
+        } else {
+            res.status(404).json({message: "Product not found"})
+        }
+    } catch (error) {
+        console.error(error)
+        res.status(500).send("Server error")
     }
 })
 

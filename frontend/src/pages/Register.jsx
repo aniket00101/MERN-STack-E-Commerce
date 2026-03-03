@@ -1,18 +1,38 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import register from '../assets/register.webp'
 import { registerUser } from '../redux/slice/authSlice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { mergeCart } from '../redux/slice/cartSlice'
 
 const Register = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [name, setName] = useState("")
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const location = useLocation()
+    const { user, guestId } = useSelector((state) => state.auth)
+    const { cart } = useSelector((state) => state.cart)
+
+    const redirect = new URLSearchParams(location.search).get("redirect") || "/"
+    const isCheckoutRedirect = redirect.includes("checkout")
+
+    useEffect(() => {
+        if (user) {
+            if (cart?.products.length > 0 && guestId) {
+                dispatch(mergeCart({ guestId, user })).then(() => {
+                    navigate(isCheckoutRedirect ? "/checkout" : "/")
+                })
+            } else {
+                navigate(isCheckoutRedirect ? "/checkout" : "/")
+            }
+        }
+    }, [user, guestId, cart, navigate, isCheckoutRedirect, dispatch])
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(registerUser({name, email, password}))
+        dispatch(registerUser({ name, email, password }))
     }
 
     return (
@@ -24,7 +44,7 @@ const Register = () => {
 
             </div>
 
-            <div className="relative z-10 w-full max-w-md sm:max-w-lg lg:max-w-4xl lg:flex bg-white/5 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/10 overflow-hidden"> 
+            <div className="relative z-10 w-full max-w-md sm:max-w-lg lg:max-w-4xl lg:flex bg-white/5 backdrop-blur-2xl rounded-3xl shadow-2xl border border-white/10 overflow-hidden">
 
                 <div className="w-full lg:w-1/2 p-6 sm:p-8 lg:p-10 flex flex-col justify-center">
 
@@ -41,7 +61,7 @@ const Register = () => {
                         <div>
                             <label className="block text-sm font-semibold text-gray-300 mb-2"> Name </label>
 
-                            <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter your name" required className="w-full px-4 py-3 bg-white/10 border border-white/20 text-white placeholder-gray-400 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all duration-300"/>
+                            <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Enter your name" required className="w-full px-4 py-3 bg-white/10 border border-white/20 text-white placeholder-gray-400 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-purple-500 outline-none transition-all duration-300" />
 
                         </div>
 
@@ -68,15 +88,15 @@ const Register = () => {
 
                     <p className="mt-8 text-center text-gray-400 text-sm"> Already have an account?{" "}
 
-                        <Link to="/login" className="text-purple-400 hover:text-purple-300 font-semibold"> Sign In </Link>
+                        <Link to={`/login?redirect=${encodeURIComponent(redirect)}`} className="text-purple-400 hover:text-purple-300 font-semibold"> Sign In </Link>
 
                     </p>
                 </div>
 
                 <div className="hidden lg:flex lg:w-1/2 items-center justify-center bg-gradient-to-br from-purple-900/40 to-indigo-900/40 p-8">
 
-                    <img src={register} alt="Register" className="rounded-2xl shadow-2xl max-h-[450px] object-cover"/>
-                    
+                    <img src={register} alt="Register" className="rounded-2xl shadow-2xl max-h-[450px] object-cover" />
+
                 </div>
             </div>
         </div>

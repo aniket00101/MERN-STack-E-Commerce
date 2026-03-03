@@ -1,36 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import {useDispatch, useSelector} from "react-redux"
+import {useNavigate} from "react-router-dom"
+import {clearCart} from "../redux/slice/cartSlice"
 
 const OrderConfirmationPage = () => {
 
-    const checkout = {
-        _id: "12345",
-        createdAt: new Date(),
-        checkoutItems: [
-            {
-                productId: "1",
-                name: "Jacket",
-                color: "black",
-                size: "M",
-                price: 150,
-                quantity: 1,
-                image: "https://picsum.photos/150?random=1"
-            },
-            {
-                productId: "2",
-                name: "Jacket",
-                color: "black",
-                size: "M",
-                price: 150,
-                quantity: 1,
-                image: "https://picsum.photos/150?random=2"
-            }
-        ],
-        shippingAddress: {
-            address: "123 Fashion street",
-            city: "New York",
-            country: "USA"
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const {checkout} = useSelector((state) => state.checkout)
+
+    useEffect(() => {
+        if(checkout && checkout._id) {
+            dispatch(clearCart())
+            localStorage.removeItem("cart")
+        } else {
+            navigate("/my-orders");
         }
-    }
+    }, [checkout, dispatch, navigate])
 
     const calculateEstimateDelivery = (createdAt) => {
         const orderDate = new Date(createdAt)

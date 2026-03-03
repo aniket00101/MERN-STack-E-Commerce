@@ -1,20 +1,21 @@
-import React, { useState } from "react";
-
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { addUser, deleteUser, updateUser, fetchUsers } from "../../redux/slice/adminSlice"
 const UserManagment = () => {
-  const users = [
-    {
-      _id: 123456,
-      name: "John Doe",
-      email: "john@gmail.com",
-      role: "admin",
-    },
-    {
-      _id: 789012,
-      name: "Jane Smith",
-      email: "jane@gmail.com",
-      role: "customer",
-    },
-  ];
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const { user } = useSelector((state) => state.auth)
+  const { users, loading, error } = useSelector((state) => state.admin)
+
+  useEffect(() => {
+    if (!user || user.role !== "admin") {
+      navigate("/");
+    } else {
+      dispatch(fetchUsers());
+    }
+  }, [user, navigate, dispatch]);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -32,7 +33,7 @@ const UserManagment = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    dispatch(addUser(formData))
     setFormData({
       name: "",
       email: "",
@@ -42,12 +43,12 @@ const UserManagment = () => {
   };
 
   const handleRoleChange = (userId, newRole) => {
-    console.log({ id: userId, role: newRole });
+    dispatch(updateUser({ id: userId, role: newRole }))
   };
 
   const handleDeleteUser = (userId) => {
     if (window.confirm("Are you sure you want to delete this user?")) {
-      console.log("deleting user with ID", userId);
+      dispatch(deleteUser(userId))
     }
   };
 
@@ -56,6 +57,9 @@ const UserManagment = () => {
       <div className="max-w-7xl mx-auto">
 
         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-8"> User Management </h2>
+
+        {loading && <p>Loading...</p>}
+        {error && <p>Error: {error}</p>}
 
         <div className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-3xl shadow-2xl p-6 sm:p-8 mb-12">
 
@@ -67,7 +71,7 @@ const UserManagment = () => {
 
               <label className="block text-sm text-gray-300 mb-2">Name</label>
 
-              <input type="text" name="name" value={formData.name} onChange={handleChange} required className="w-full px-4 py-3 bg-white/10 border border-white/20 text-white rounded-xl focus:ring-2 focus:ring-purple-500 outline-none"/>
+              <input type="text" name="name" value={formData.name} onChange={handleChange} required className="w-full px-4 py-3 bg-white/10 border border-white/20 text-white rounded-xl focus:ring-2 focus:ring-purple-500 outline-none" />
 
             </div>
 
@@ -75,7 +79,7 @@ const UserManagment = () => {
 
               <label className="block text-sm text-gray-300 mb-2">Email</label>
 
-              <input type="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 bg-white/10 border border-white/20 text-white rounded-xl focus:ring-2 focus:ring-purple-500 outline-none"/>
+              <input type="email" name="email" value={formData.email} onChange={handleChange} required className="w-full px-4 py-3 bg-white/10 border border-white/20 text-white rounded-xl focus:ring-2 focus:ring-purple-500 outline-none" />
 
             </div>
 
@@ -83,7 +87,7 @@ const UserManagment = () => {
 
               <label className="block text-sm text-gray-300 mb-2">Password</label>
 
-              <input type="password" name="password" value={formData.password} onChange={handleChange} required className="w-full px-4 py-3 bg-white/10 border border-white/20 text-white rounded-xl focus:ring-2 focus:ring-purple-500 outline-none"/>
+              <input type="password" name="password" value={formData.password} onChange={handleChange} required className="w-full px-4 py-3 bg-white/10 border border-white/20 text-white rounded-xl focus:ring-2 focus:ring-purple-500 outline-none" />
 
             </div>
 
@@ -142,7 +146,7 @@ const UserManagment = () => {
               </div>
 
               <button onClick={() => handleDeleteUser(user._id)} className="w-full bg-red-600/80 hover:bg-red-600 text-white py-2 rounded-lg transition"> Delete User </button>
-              
+
             </div>
           ))}
 

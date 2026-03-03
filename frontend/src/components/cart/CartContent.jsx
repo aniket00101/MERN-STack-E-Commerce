@@ -1,31 +1,33 @@
 import React from 'react'
 import { RiDeleteBin3Line } from "react-icons/ri";
+import { useDispatch } from 'react-redux';
+import { removeFromCart, updateCartItemQuantity } from '../../redux/slice/cartSlice';
 
-const CartContent = () => {
-  const cartProducts = [
-    {
-      productId: 1,
-      name: "T-Shirt",
-      size: "M",
-      color: "Red",
-      quantity: 1,
-      price: 15,
-      image: "https://picsum.photos/200?random=1"
-    },
-    {
-      productId: 2,
-      name: "Jeans",
-      size: "L",
-      color: "Blue",
-      quantity: 1,
-      price: 25,
-      image: "https://picsum.photos/200?random=2"
-    },
-  ]
+const CartContent = ({cart, userId, guestId}) => {
+  const dispatch = useDispatch()
+  const handleAddToCart = (productId, delta, quantity, size, color) => {
+    const newQuantity = quantity + delta
+    if(newQuantity >= 1) {
+      dispatch(
+        updateCartItemQuantity({
+          productId,
+          quantity: newQuantity,
+          guestId,
+          userId,
+          size,
+          color,
+        })
+      )
+    }
+  }
+
+  const handleRemoveFromCart = (productId, size, color) => {
+    dispatch(removeFromCart({productId, guestId, userId, size, color}))
+  }
 
   return (
     <div className="space-y-5">
-      {cartProducts.map((product, index) => (
+      {cart.products.map((product, index) => (
 
         <div key={index} className="flex items-center justify-between p-4 rounded-2xl bg-white/5 backdrop-blur-lg border border-white/10 shadow-lg hover:bg-white/10 transition">
 
@@ -44,12 +46,12 @@ const CartContent = () => {
 
               <div className='flex items-center mt-3'>
 
-                <button className='bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg px-3 py-1 text-lg font-medium transition'> - </button>
+                <button className='bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg px-3 py-1 text-lg font-medium transition' onClick={() => handleAddToCart(product.productId, -1, product.quantity, product.size, product.color)}> - </button>
 
                 <span className='mx-4 text-yellow-400 font-semibold'> {product.quantity} </span>
 
                 <button className='bg-white/10 hover:bg-white/20 border border-white/20 rounded-lg px-3 py-1 text-lg font-medium transition
-                '>+</button>
+                ' onClick={() => handleAddToCart(product.productId, 1, product.quantity, product.size, product.color)}>+</button>
 
               </div>
 
@@ -61,7 +63,7 @@ const CartContent = () => {
 
             <p className='font-semibold text-lg text-red-400'> $ {product.price.toLocaleString()} </p>
 
-            <button className='mt-3 hover:text-red-500 transition'> <RiDeleteBin3Line className="h-6 w-6 text-red-400" /> </button>
+            <button onClick={() => handleRemoveFromCart(product.productId, product.size, product.color)} className='mt-3 hover:text-red-500 transition'> <RiDeleteBin3Line className="h-6 w-6 text-red-400" /> </button>
 
           </div>
 

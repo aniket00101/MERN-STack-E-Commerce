@@ -1,28 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
+import {useDispatch, useSelector} from "react-redux"
+import {useNavigate} from "react-router-dom"
+import {fetchAllOrders, updateOrderStatus} from "../../redux/slice/adminOrderSlice"
 
 const OrderManagment = () => {
-  const orders = [
-    {
-      _id: 123123123,
-      user: {
-        name: "John Doe",
-      },
-      totalPrice: 110,
-      status: "Processing",
-    },
-    {
-      _id: 456456456,
-      user: {
-        name: "Jane Smith",
-      },
-      totalPrice: 250,
-      status: "Shipped",
-    },
-  ];
+  
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const {user} = useSelector((state) => state.auth)
+  const {orders, loading, error} = useSelector((state) => state.adminOrders)
+
+  useEffect(() => {
+    if(!user || user.role !== "admin") {
+      navigate("/")
+    } else {
+      dispatch(fetchAllOrders())
+    }
+  }, [dispatch, user, navigate])
 
   const handleStatusChange = (orderId, status) => {
-    console.log({ id: orderId, status });
+    dispatch(updateOrderStatus({id: orderId, status}))
   };
+
+  if(loading) return <p>Loading...</p>
+  if(error) return <p>Error: {error}</p>
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-slate-900 to-black text-gray-200 px-4 sm:px-6 lg:px-10 py-8">
@@ -58,7 +60,7 @@ const OrderManagment = () => {
 
                   <p className="text-sm text-gray-400">Total Price</p>
 
-                  <p className="text-2xl font-semibold text-emerald-400"> ${order.totalPrice} </p>
+                  <p className="text-2xl font-semibold text-emerald-400"> ${order.totalPrice.toFixed(2)} </p>
                 </div>
 
                 <div className="mb-4">

@@ -1,18 +1,38 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import loginpic from '../assets/login.webp'
 import { loginUser } from '../redux/slice/authSlice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { mergeCart } from '../redux/slice/cartSlice'
 
 const Login = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const location = useLocation()
+    const {user, guestId} = useSelector((state) => state.auth)
+    const {cart} = useSelector((state) => state.cart)
+
+    const redirect = new URLSearchParams(location.search).get("redirect") || "/"
+    const isCheckoutRedirect = redirect.includes("checkout")
 
     const handleSubmit = (e) => {
         e.preventDefault();
         dispatch(loginUser({email, password}))
     }
+
+    useEffect (() => {
+        if(user) {
+            if(cart?.products.length > 0 && guestId) {
+                dispatch(mergeCart({guestId, user})).then(() => {
+                    navigate(isCheckoutRedirect ? "/checkout" : "/")
+                })
+            } else {
+                navigate(isCheckoutRedirect ? "/checkout" : "/")
+            }
+        }
+    }, [user, guestId, cart, navigate, isCheckoutRedirect, dispatch])
 
     return (
         <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 lg:p-8 bg-gradient-to-br from-gray-950 via-slate-900 to-black relative overflow-hidden">
@@ -61,7 +81,7 @@ const Login = () => {
 
                         Don't have an account?{" "}
 
-                        <Link to="/register" className="text-purple-400 hover:text-purple-300 font-semibold"> Create one now </Link>
+                        <Link to={`/register?redirect=${encodeURIComponent(redirect)}`} className="text-purple-400 hover:text-purple-300 font-semibold"> Create one now </Link>
 
                     </p>
                 </div>

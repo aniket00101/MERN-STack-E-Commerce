@@ -4,11 +4,16 @@ import { HiOutlineUser, HiOutlineShoppingBag, HiBars3BottomRight } from "react-i
 import { IoMdClose } from 'react-icons/io'
 import SearchBar from './SearchBar'
 import CartDrawer from '../layout/CartDrawer'
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
 
     const [drawerOpen, setDrawerOpen] = useState(false)
     const [navDrawerOpen, setNavDrawerOpen] = useState(false)
+    const {cart} = useSelector((state) => state.cart)
+    const {user} = useSelector((state) => state.auth)
+
+    const cartItemCount = cart?.products?.reduce((total, product) => total + product.quantity, 0) || 0
 
     const toggleNavDrawer = () => {
         setNavDrawerOpen(!navDrawerOpen)
@@ -28,16 +33,17 @@ const Navbar = () => {
                     <Link to="/" className='text-2xl font-semibold tracking-wide hover:text-purple-400 transition'> NexMart </Link>
 
                     <div className='hidden md:flex space-x-8 text-sm font-medium uppercase tracking-wide'>
-                        <Link to="/collections/all" className='hover:text-purple-400 transition'>Men</Link>
-                        <Link to="#" className='hover:text-purple-400 transition'>Women</Link>
-                        <Link to="#" className='hover:text-purple-400 transition'>Top Wear</Link>
-                        <Link to="#" className='hover:text-purple-400 transition'>Bottom Wear</Link>
+                        <Link to="/collections/all?gender=Men" className='hover:text-purple-400 transition'>Men</Link>
+                        <Link to="/collections/all?gender=Women" className='hover:text-purple-400 transition'>Women</Link>
+                        <Link to="/collections/all?category=Top Wear" className='hover:text-purple-400 transition'>Top Wear</Link>
+                        <Link to="/collections/all?category=Bottom Wear" className='hover:text-purple-400 transition'>Bottom Wear</Link>
                     </div>
 
                     <div className='flex items-center space-x-5'>
 
-                        <Link to="/admin" className='sm:block bg-purple-600 hover:bg-purple-700 px-3 py-1 rounded-lg text-xs font-medium transition'
-                        > Admin </Link>
+                        {user && user.role === "admin" && (
+                            <Link to="/admin" className='sm:block bg-purple-600 hover:bg-purple-700 px-3 py-1 rounded-lg text-xs font-medium transition'> Admin </Link>
+                        )}
 
                         <Link to="/profile" className='hover:text-purple-400 transition'>
                             <HiOutlineUser className='h-6 w-6' />
@@ -47,7 +53,9 @@ const Navbar = () => {
                         <button onClick={toggleCartDrawer} className='relative hover:text-purple-400 transition'>
                             <HiOutlineShoppingBag className='h-6 w-6' />
 
-                            <span className=' absolute -top-2 -right-2 bg-purple-600 text-white text-xs rounded-full px-2 py-0.5 shadow-md'> 4 </span>
+                            {cartItemCount > 0 && (
+                                <span className=' absolute -top-2 -right-2 bg-purple-600 text-white text-xs rounded-full px-2 py-0.5 shadow-md'> {cartItemCount} </span>
+                            )}
 
                         </button>
 
@@ -78,13 +86,13 @@ const Navbar = () => {
 
                     <nav className='space-y-6 text-base font-medium'>
 
-                        <Link to="#" onClick={toggleNavDrawer} className='block hover:text-purple-400 transition'> Men </Link>
+                        <Link to="/collections/all?gender=Men" onClick={toggleNavDrawer} className='block hover:text-purple-400 transition'> Men </Link>
 
-                        <Link to="#" onClick={toggleNavDrawer} className='block hover:text-purple-400 transition'> Women </Link>
+                        <Link to="/collections/all?gender=Women" onClick={toggleNavDrawer} className='block hover:text-purple-400 transition'> Women </Link>
 
-                        <Link to="#" onClick={toggleNavDrawer} className='block hover:text-purple-400 transition'> Top Wear </Link>
+                        <Link to="/collections/all?category=Top Wear" onClick={toggleNavDrawer} className='block hover:text-purple-400 transition'> Top Wear </Link>
 
-                        <Link to="#" onClick={toggleNavDrawer} className='block hover:text-purple-400 transition'> Bottom Wear </Link>
+                        <Link to="/collections/all?category=Bottom Wear" onClick={toggleNavDrawer} className='block hover:text-purple-400 transition'> Bottom Wear </Link>
                     </nav>
                 </div>
 

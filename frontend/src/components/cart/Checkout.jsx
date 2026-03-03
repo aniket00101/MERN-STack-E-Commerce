@@ -1,30 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PaypalButton from './PaypalButton'
+import { useDispatch, useSelector } from 'react-redux'
+import axios from 'axios'
+import { createCheckout } from '../../redux/slice/checkoutSlice'
 
 const Checkout = () => {
 
-    const cart = {
-        product: [
-            {
-                name: "Stylish Jacket",
-                size: "M",
-                color: "Black",
-                price: 120,
-                image: "https://picsum.photos/150?random=1",
-            },
-            {
-                name: "Casual Sneakers",
-                size: "42",
-                color: "White",
-                price: 75,
-                image: "https://picsum.photos/150?random=2",
-            }
-        ],
-        totalPrice: 195,
-    }
-
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const { cart, loading, error } = useSelector((state) => state.cart)
+    const { user } = useSelector((state) => state.auth)
     const [checkoutId, setCheckoutId] = useState(null)
     const [shippingAddress, setShippingAddress] = useState({
         firstName: "",
@@ -36,15 +22,76 @@ const Checkout = () => {
         phone: "",
     })
 
-    const handleCreateCheckout = (e) => {
+    useEffect(() => {
+        if (!cart || !cart.products || cart.products.length === 0) {
+            navigate("/")
+        }
+    }, [cart, navigate])
+
+    // FIX 1: Added await so res.payload is populated from the resolved action
+    const handleCreateCheckout = async (e) => {
         e.preventDefault()
-        setCheckoutId(123)
+        if (cart && cart.products.length > 0) {
+            const res = await dispatch(
+                createCheckout({
+                    checkoutItems: cart.products,
+                    shippingAddress,
+                    paymentMethod: "Paypal",
+                    totalPrice: cart.totalPrice,
+                })
+            );
+            if (res.payload && res.payload._id) {
+                setCheckoutId(res.payload._id)
+            }
+        }
     }
 
-    const handlePaymentSuccess = (details) => {
-        console.log("Payment Successful", details);
-        navigate("/order-confirmation")
+    const handlePaymentSuccess = async (details) => {
+        try {
+            // FIX 2: Added checkoutId to the payment URL
+            const response = await axios.put(
+                `${import.meta.env.VITE_BACKEND_URL}/api/checkout/${checkoutId}/pay`,
+                { paymentStatus: "paid", paymentDetails: details },
+                {
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("userToken")}`,
+                    }
+                }
+            )
+            await handleFinalizeCheckout(checkoutId)
+        } catch (error) {
+            console.error(error)
+        }
     }
+
+    const handleFinalizeCheckout = async (checkoutId) => {
+        try {
+            const response = await axios.post(
+                `${import.meta.env.VITE_BACKEND_URL}/api/checkout/${checkoutId}/finalize`, {}, {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("userToken")}`
+                }
+            }
+            )
+            navigate("order-confirmation")
+        } catch (error) {
+            console.error(error)
+        }
+    }
+
+    if (loading) {
+        return <p>Loading cart</p>
+    }
+
+    // FIX 3: Changed template literal ${error} to JSX expression {error}
+    if (error) {
+        return <p>Error: {error}</p>
+    }
+
+    if (!cart || !cart.products || cart.products.length === 0) {
+        return <p>Your cart is empty</p>
+    }
+
     return (
         <div className="min-h-screen bg-gray-950 text-gray-200">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-7xl mx-auto py-10 px-6 tracking-tighter">
@@ -61,7 +108,7 @@ const Checkout = () => {
 
                             <label className="block text-gray-400">Email</label>
 
-                            <input type="email" value="user@example.com" disabled className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-400" />
+                            <input type="email" value={user ? user.email : ""} disabled className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-400" />
 
                         </div>
 
@@ -107,7 +154,7 @@ const Checkout = () => {
 
                                 <label className="block text-gray-400">Postal Code</label>
 
-                                <input type="text" value={shippingAddress.postalCode} onChange={(e) => setShippingAddress({...shippingAddress, postalCode: e.target.value, })} className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500" required />
+                                <input type="text" value={shippingAddress.postalCode} onChange={(e) => setShippingAddress({ ...shippingAddress, postalCode: e.target.value, })} className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500" required />
 
                             </div>
                         </div>
@@ -116,8 +163,7 @@ const Checkout = () => {
 
                             <label className="block text-gray-400">Country</label>
 
-                            <input type="text" value={shippingAddress.country} onChange={(e) => setShippingAddress({...shippingAddress,
-                                        country: e.target.value,}) } className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500" required/>
+                            <input type="text" value={shippingAddress.country} onChange={(e) => setShippingAddress({ ...shippingAddress, country: e.target.value, })} className="w-full p-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:border-purple-500" required />
 
                         </div>
 
@@ -140,7 +186,7 @@ const Checkout = () => {
 
                                     <h3 className="text-lg mb-4">Pay with Paypal</h3>
 
-                                    <PaypalButton amount={100} onSuccess={handlePaymentSuccess} onError={() => alert("Payment failed. Try again later.")}/>
+                                    <PaypalButton amount={cart.totalPrice} onSuccess={handlePaymentSuccess} onError={() => alert("Payment failed. Try again later.")} />
 
                                 </div>
                             )}
@@ -153,20 +199,21 @@ const Checkout = () => {
                     <h3 className="text-lg mb-6">Order Summary</h3>
 
                     <div className="border-t border-gray-800 py-4 mb-4">
-                        {cart.product.map((products, index) => (
+                        {/* FIX 4: Changed cart.product.map to cart.products.map */}
+                        {cart.products.map((products, index) => (
                             <div key={index} className="flex items-start justify-between py-4 border-b border-gray-800">
                                 <div className="flex items-start">
 
-                                    <img src={products.image} alt={products.name} className="w-20 h-24 object-cover rounded-lg mr-4"/>
+                                    <img src={products.image} alt={products.name} className="w-20 h-24 object-cover rounded-lg mr-4" />
 
                                     <div>
-                                        
+
                                         <h3 className="text-md">{products.name}</h3>
-                                        
+
                                         <p className="text-gray-400 text-sm">Size: {products.size}</p>
-                                        
+
                                         <p className="text-gray-400 text-sm">Color: {products.color}</p>
-                                    
+
                                     </div>
                                 </div>
 

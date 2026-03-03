@@ -5,7 +5,9 @@ const router = express.Router()
 
 router.get("/", protect, admin, async(req, res) => {
     try {
-        const orders = await order.find({}).populate("user", "name email")
+        const orders = await Order.find({})
+            .populate("user", "name email")
+
         res.json(orders)
     } catch (error) {
         console.error(error)

@@ -124,11 +124,15 @@ const productsSlice = createSlice({
       state.error = null;
     })
     .addCase(fetchProductByFilters.fulfilled, (state, action) => {
-      state.loading = false;
-      state.products = Array.isArray(action.payload)
-        ? action.payload
-        : [];
-    })
+  state.loading = false;
+
+  state.products =
+    Array.isArray(action.payload)
+      ? action.payload
+      : Array.isArray(action.payload.products)
+      ? action.payload.products
+      : [];
+})
     .addCase(fetchProductByFilters.rejected, (state, action) => {
       state.loading = false;
       state.error =

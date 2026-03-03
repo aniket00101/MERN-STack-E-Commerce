@@ -1,7 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import MyOrderPage from './MyOrderPage'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { logout } from '../redux/slice/authSlice'
+import { clearCart } from '../redux/slice/cartSlice'
 
 const Profile = () => {
+  const { user } = useSelector((state) => state.auth)
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    if(!user) {
+      navigate("/login")
+    }
+  }, [user, navigate])
+
+  const handleLogout = () => {
+    dispatch(logout())
+    dispatch(clearCart())
+    navigate("/login")
+  }
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-950 via-slate-900 to-black text-white">
 
@@ -15,11 +34,11 @@ const Profile = () => {
 
               <div className="w-24 h-24 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 flex items-center justify-center text-3xl font-bold mb-4 shadow-lg"> JD </div>
 
-              <h1 className="text-2xl font-bold mb-2"> John Doe </h1>
+              <h1 className="text-2xl font-bold mb-2"> {user?.name} </h1>
 
-              <p className="text-gray-400 mb-6"> john@example.com </p>
+              <p className="text-gray-400 mb-6"> {user?.email} </p>
 
-              <button className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg"> Logout </button>
+              <button onClick={handleLogout} className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-500 hover:to-red-600 py-3 rounded-xl font-semibold transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg"> Logout </button>
 
             </div>
           </div>

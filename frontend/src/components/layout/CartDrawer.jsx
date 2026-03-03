@@ -47,7 +47,7 @@ const CartDrawer = ({ drawerOPen, toogleCartDrawer }) => {
 
             <span className='text-sm sm:text-base font-medium text-gray-300'>Subtotal:</span>
 
-            <span className='text-xl sm:text-2xl font-bold text-white'>${subtotal?.toFixed(2)}</span>
+            <span className='text-xl sm:text-2xl font-bold text-white'>₹ {subtotal?.toFixed(2)}</span>
 
           </div>
 

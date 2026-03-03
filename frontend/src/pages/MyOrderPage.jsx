@@ -58,7 +58,7 @@ const MyOrderPage = () => {
 
                                         <td className="px-6 py-4 text-gray-400"> {order.orderItems.length} </td>
 
-                                        <td className="px-6 py-4 font-semibold text-white"> ${order.totalPrice} </td>
+                                        <td className="px-6 py-4 font-semibold text-white"> ₹ {order.totalPrice} </td>
 
                                         <td className="px-6 py-4">
                                             <span className={`px-3 py-1 rounded-full text-xs font-semibold ${order.isPaid ? "bg-emerald-900/40 text-emerald-400 border border-emerald-700" : "bg-red-900/40 text-red-400 border border-red-700"}`}> {order.isPaid ? "Paid" : "Pending"} </span>
@@ -79,7 +79,7 @@ const MyOrderPage = () => {
                                     <div className="flex-1">
                                         <h3 className="font-semibold text-white"> Order #{order._id} </h3>
 
-                                        <p className="text-gray-400 text-sm"> ${order.totalPrice} </p>
+                                        <p className="text-gray-400 text-sm"> ₹ {order.totalPrice} </p>
                                     </div>
                                 </div>
 

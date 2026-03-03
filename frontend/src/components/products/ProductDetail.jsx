@@ -121,11 +121,11 @@ const ProductDetail = ({ productId }) => {
 
                 <div className="flex items-center gap-4 mb-6">
 
-                  <span className="text-2xl font-semibold text-purple-400"> ${selectedProduct.price} </span>
+                  <span className="text-2xl font-semibold text-purple-400"> ₹ {selectedProduct.price} </span>
 
                   {selectedProduct.originalPrice && (
                     <>
-                      <span className="line-through text-gray-400"> ${selectedProduct.originalPrice} </span>
+                      <span className="line-through text-gray-400"> ₹ {selectedProduct.originalPrice} </span>
 
                       <span className="bg-purple-600 text-white text-xs px-3 py-1 rounded-full"> -{discount}% </span>
 

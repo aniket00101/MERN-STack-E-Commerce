@@ -163,7 +163,7 @@ const NewArrivals = () => {
                         <div className="absolute bottom-0 left-0 right-0 bg-black/50 backdrop-blur-md text-white p-5 rounded-b-2xl">
                             <Link to={`/product/${product._id}`}>
                                 <h4 className="font-semibold text-lg">{product.name}</h4>
-                                <p className="mt-1 text-gray-300">$ {product.price}</p>
+                                <p className="mt-1 text-gray-300">₹ {product.price}</p>
                             </Link>
                         </div>
 

@@ -16,7 +16,7 @@ const FilterSideBar = () => {
   };
 
   const [filter, setFilter] = useState(defaultFilter);
-  const [priceRange, setPriceRange] = useState([0, 100]);
+  const [priceRange, setPriceRange] = useState([0, 1000]);
 
   const categories = ["Top wear", "Bottom wear"];
   const colors = ["Red", "Blue", "Black", "Green", "Yellow", "Gray", "White", "Pink", "Beige", "Navy"];
@@ -219,8 +219,8 @@ const FilterSideBar = () => {
         <input type="range" min="0" max="100" value={priceRange[1]} onChange={handlePriceChange} className="w-full accent-purple-500 cursor-pointer"/>
 
         <div className="flex justify-between mt-2 text-sm text-gray-400">
-          <span>$0</span>
-          <span>${priceRange[1]}</span>
+          <span>₹0</span>
+          <span>₹{priceRange[1]}</span>
         </div>
       </div>
 

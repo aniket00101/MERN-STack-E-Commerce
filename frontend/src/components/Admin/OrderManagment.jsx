@@ -60,7 +60,7 @@ const OrderManagment = () => {
 
                   <p className="text-sm text-gray-400">Total Price</p>
 
-                  <p className="text-2xl font-semibold text-emerald-400"> ${order.totalPrice.toFixed(2)} </p>
+                  <p className="text-2xl font-semibold text-emerald-400"> ₹ {order.totalPrice.toFixed(2)} </p>
                 </div>
 
                 <div className="mb-4">

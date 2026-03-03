@@ -217,7 +217,7 @@ const Checkout = () => {
                                     </div>
                                 </div>
 
-                                <p className="text-lg font-medium"> ${products.price?.toLocaleString()} </p>
+                                <p className="text-lg font-medium"> ₹ {products.price?.toLocaleString()} </p>
 
                             </div>
                         ))}
@@ -225,7 +225,7 @@ const Checkout = () => {
 
                     <div className="flex justify-between items-center text-lg mb-3">
                         <p className="text-gray-400">Subtotal</p>
-                        <p>${cart.totalPrice?.toLocaleString()}</p>
+                        <p>₹ {cart.totalPrice?.toLocaleString()}</p>
                     </div>
 
                     <div className="flex justify-between items-center text-lg">

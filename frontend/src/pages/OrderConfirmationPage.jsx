@@ -61,7 +61,7 @@ const OrderConfirmationPage = () => {
                                     </div>
 
                                     <div className='ml-auto text-right'>
-                                        <p className='text-md font-semibold text-white'> ${item.price} </p>
+                                        <p className='text-md font-semibold text-white'> ₹ {item.price} </p>
                                         <p className='text-sm text-gray-400'> Qty: {item.quantity} </p>
                                     </div>
 

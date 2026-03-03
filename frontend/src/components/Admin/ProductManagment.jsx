@@ -40,7 +40,7 @@ const ProductManagment = () => {
 
                   <p className="text-sm text-gray-400">Price</p>
 
-                  <p className="text-2xl font-semibold text-emerald-400"> ${product.price} </p>
+                  <p className="text-2xl font-semibold text-emerald-400"> ₹ {product.price} </p>
 
                 </div>
 

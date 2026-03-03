@@ -33,7 +33,7 @@ const AdminHomePage = () => {
 
                     <h2 className="text-gray-400 text-sm uppercase tracking-wider"> Revenue </h2>
 
-                    <p className="text-4xl font-bold mt-4 text-white"> Rs {(totalSales || 0).toFixed(2)} </p>
+                    <p className="text-4xl font-bold mt-4 text-white"> ₹ {(totalSales || 0).toFixed(2)} </p>
 
                 </div>
 
@@ -90,7 +90,7 @@ const AdminHomePage = () => {
 
                                 <div>
                                     <p className="text-sm text-gray-400"> Total Amount </p>
-                                    <p className="text-3xl font-bold text-white"> ${order.totalPrice.toFixed(2)} </p>
+                                    <p className="text-3xl font-bold text-white"> ₹ {order.totalPrice.toFixed(2)} </p>
                                 </div>
 
                             </div>

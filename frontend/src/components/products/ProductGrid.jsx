@@ -30,7 +30,7 @@ const ProductGrid = ({ products=[], loading, error }) => {
               </h3>
 
               <p className="text-purple-400 font-semibold text-sm sm:text-base tracking-wide">
-                ${item.price}
+                ₹ {item.price}
               </p>
 
             </div>

@@ -41,3 +41,6 @@ app.use("/api/admin/orders", adminorderRoute)
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`)
 })
+
+// username: dasaniket971_db_user
+// password: 2APWq440WmWW9Kn1

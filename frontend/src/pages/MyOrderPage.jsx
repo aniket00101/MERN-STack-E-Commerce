@@ -1,100 +1,200 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import {useDispatch, useSelector} from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { fetchUserOrders } from '../redux/slice/orderSlice'
 
+const StatusBadge = ({ isPaid }) => (
+  <span
+    className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold tracking-widest uppercase"
+    style={{
+      fontFamily: "'Barlow', sans-serif",
+      background: isPaid ? 'rgba(16,185,129,0.08)' : 'rgba(220,38,38,0.08)',
+      border: `1px solid ${isPaid ? 'rgba(16,185,129,0.3)' : 'rgba(220,38,38,0.3)'}`,
+      color: isPaid ? '#34d399' : '#f87171',
+    }}>
+    <span className="w-1.5 h-1.5 rounded-full" style={{ background: isPaid ? '#34d399' : '#f87171' }} />
+    {isPaid ? 'Paid' : 'Pending'}
+  </span>
+)
+
 const MyOrderPage = () => {
-    const dispatch = useDispatch()
-    const navigate = useNavigate()
-    const {orders, loading, error} = useSelector((state) => state.orders)
-    useEffect(() => {
-        dispatch(fetchUserOrders())
-    }, [dispatch])
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const { orders, loading, error } = useSelector((state) => state.orders)
 
-    const handleRowClick = (orderId) => {
-        navigate(`/order/${orderId}`)
-    }
+  useEffect(() => {
+    dispatch(fetchUserOrders())
+  }, [dispatch])
 
-    if(loading) return <p>Loading...</p>
-    if(error)   return <p>Error: {error} </p>
+  const handleRowClick = (orderId) => navigate(`/order/${orderId}`)
 
-    return (
-        <div className="w-full min-h-screen bg-gray-950 text-gray-200 p-4 sm:p-6">
+  if (loading) return (
+    <div className="flex items-center gap-3 py-10 justify-center">
+      <div className="w-6 h-6 border-2 border-yellow-400 border-t-transparent rounded-full animate-spin" />
+      <p className="text-white/30 text-xs tracking-widest uppercase"
+        style={{ fontFamily: "'Barlow', sans-serif" }}>Loading orders…</p>
+    </div>
+  )
 
-            <h2 className="text-3xl font-bold mb-8 text-white"> My Orders </h2>
+  if (error) return (
+    <p className="text-red-400 text-sm tracking-widest uppercase py-8 text-center"
+      style={{ fontFamily: "'Barlow', sans-serif" }}>
+      Error: {error}
+    </p>
+  )
 
-            {loading ? (
-                <div className="text-gray-400 animate-pulse"> Loading your orders... </div>
-            ) : orders.length === 0 ? ( 
-            <div className="text-gray-500 text-center py-12"> You have no orders. </div>
-            ) : (
-                <>
-                    <div className="hidden md:block overflow-x-auto bg-gray-900 border border-gray-800 rounded-2xl shadow-xl">
-                        <table className="min-w-full text-sm text-gray-300">
-                            <thead className="bg-gray-800 text-gray-400 uppercase text-xs tracking-wider">
-                                <tr>
-                                    <th className="px-6 py-4 text-left">Image</th>
-                                    <th className="px-6 py-4 text-left">Order ID</th>
-                                    <th className="px-6 py-4 text-left">Created</th>
-                                    <th className="px-6 py-4 text-left">Shipping</th>
-                                    <th className="px-6 py-4 text-left">Items</th>
-                                    <th className="px-6 py-4 text-left">Price</th>
-                                    <th className="px-6 py-4 text-left">Status</th>
-                                </tr>
-                            </thead>
+  if (orders.length === 0) return (
+    <div className="flex flex-col items-center justify-center py-16 gap-4 text-center">
+      <div className="text-5xl opacity-10">📦</div>
+      <p className="text-white/25 text-xs tracking-widest uppercase"
+        style={{ fontFamily: "'Barlow', sans-serif" }}>
+        No orders yet
+      </p>
+    </div>
+  )
 
-                            <tbody>
-                                {orders.map((order) => (
-                                    <tr key={order._id} onClick={() => handleRowClick(order._id)} className="border-t border-gray-800 hover:bg-gray-800/60 cursor-pointer ">
-                                        <td className="px-6 py-4">
-                                            <img src={order.orderItems[0].image} alt="" className="w-12 h-12 rounded-lg object-cover" />
-                                        </td>
+  return (
+    <>
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap');`}</style>
 
-                                        <td className="px-6 py-4 font-semibold text-white"> #{order._id} </td>
+      {/* Desktop table */}
+      <div className="hidden md:block overflow-x-auto">
+        <table className="min-w-full text-sm">
+          <thead>
+            <tr className="border-b border-white/8">
+              {['Item', 'Order ID', 'Date', 'Shipping', 'Items', 'Total', 'Status'].map((h) => (
+                <th key={h}
+                  className="px-4 py-3 text-left text-xs font-bold tracking-widest uppercase text-white/25"
+                  style={{ fontFamily: "'Barlow', sans-serif" }}>
+                  {h}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {orders.map((order) => (
+              <tr
+                key={order._id}
+                onClick={() => handleRowClick(order._id)}
+                className="border-b border-white/5 cursor-pointer transition-all duration-300 group hover:border-yellow-500/20"
+                style={{ background: 'transparent' }}
+                onMouseEnter={e => e.currentTarget.style.background = 'rgba(234,179,8,0.03)'}
+                onMouseLeave={e => e.currentTarget.style.background = 'transparent'}
+              >
+                <td className="px-4 py-4">
+                  <div className="relative w-11 h-11 overflow-hidden flex-shrink-0">
+                    <img src={order.orderItems[0]?.image} alt=""
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      style={{ filter: 'brightness(0.9)' }} />
+                    <div className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity"
+                      style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)' }} />
+                  </div>
+                </td>
 
-                                        <td className="px-6 py-4 text-gray-400"> {new Date(order.createdAt).toLocaleDateString()} </td>
+                <td className="px-4 py-4">
+                  <span className="font-mono text-xs text-white/50 group-hover:text-yellow-400/70 transition-colors">
+                    #{order._id.slice(-8).toUpperCase()}
+                  </span>
+                </td>
 
-                                        <td className="px-6 py-4 text-gray-400"> {order.shippingAddress ? `${order.shippingAddress.city}, ${order.shippingAddress.country}` : "N/A"} </td>
+                <td className="px-4 py-4 text-white/35 text-xs"
+                  style={{ fontFamily: "'Barlow', sans-serif" }}>
+                  {new Date(order.createdAt).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}
+                </td>
 
-                                        <td className="px-6 py-4 text-gray-400"> {order.orderItems.length} </td>
+                <td className="px-4 py-4 text-white/35 text-xs"
+                  style={{ fontFamily: "'Barlow', sans-serif" }}>
+                  {order.shippingAddress
+                    ? `${order.shippingAddress.city}, ${order.shippingAddress.country}`
+                    : "N/A"}
+                </td>
 
-                                        <td className="px-6 py-4 font-semibold text-white"> ₹ {order.totalPrice} </td>
+                <td className="px-4 py-4 text-white/35 text-xs text-center"
+                  style={{ fontFamily: "'Barlow', sans-serif" }}>
+                  {order.orderItems.length}
+                </td>
 
-                                        <td className="px-6 py-4">
-                                            <span className={`px-3 py-1 rounded-full text-xs font-semibold ${order.isPaid ? "bg-emerald-900/40 text-emerald-400 border border-emerald-700" : "bg-red-900/40 text-red-400 border border-red-700"}`}> {order.isPaid ? "Paid" : "Pending"} </span>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
+                <td className="px-4 py-4">
+                  <span className="font-black"
+                    style={{
+                      fontFamily: "'Bebas Neue', sans-serif",
+                      fontSize: '17px',
+                      background: 'linear-gradient(90deg, #EAB308, #DC2626)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      letterSpacing: '0.05em',
+                    }}>
+                    ₹ {order.totalPrice?.toLocaleString()}
+                  </span>
+                </td>
 
-                    <div className="md:hidden space-y-5">
-                        {orders.map((order) => (
+                <td className="px-4 py-4">
+                  <StatusBadge isPaid={order.isPaid} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
-                            <div key={order._id} onClick={() => handleRowClick(order._id)} className="bg-gray-900 border border-gray-800 rounded-2xl p-5 shadow-lg cursor-pointer hover:bg-gray-800 transition" >
-                                <div className="flex items-center gap-4">
-                                     
-                                    <img src={order.orderItems[0].image} alt="" className="w-16 h-16 rounded-lg object-cover"/>
-                                    <div className="flex-1">
-                                        <h3 className="font-semibold text-white"> Order #{order._id} </h3>
+      {/* Mobile cards */}
+      <div className="md:hidden space-y-4">
+        {orders.map((order) => (
+          <div
+            key={order._id}
+            onClick={() => handleRowClick(order._id)}
+            className="border border-white/8 p-4 cursor-pointer transition-all duration-300 hover:border-yellow-500/20 relative overflow-hidden"
+            style={{ background: 'rgba(255,255,255,0.02)' }}
+          >
+            {/* Top hover line */}
+            <div className="absolute top-0 left-0 right-0 h-px"
+              style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)' }} />
 
-                                        <p className="text-gray-400 text-sm"> ₹ {order.totalPrice} </p>
-                                    </div>
-                                </div>
+            <div className="flex items-start gap-4">
+              <img src={order.orderItems[0]?.image} alt=""
+                className="w-14 h-16 object-cover flex-shrink-0"
+                style={{ filter: 'brightness(0.9) contrast(1.05)' }} />
 
-                                <div className="mt-3 text-sm text-gray-400"> {order.shippingAddress.city}, {order.shippingAddress.country} </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-mono text-xs text-white/40 mb-1">
+                  #{order._id.slice(-8).toUpperCase()}
+                </p>
 
-                                <div className="mt-3">
-                                    <span className={`px-3 py-1 rounded-full text-xs font-semibold ${order.isPaid ? "bg-emerald-900/40 text-emerald-400 border border-emerald-700" : "bg-red-900/40 text-red-400 border border-red-700"}`}> {order.isPaid ? "Paid" : "Pending"}</span>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </>
-            )}
-        </div>
-    )
+                <div className="flex items-center justify-between mb-2">
+                  <span className="font-black"
+                    style={{
+                      fontFamily: "'Bebas Neue', sans-serif",
+                      fontSize: '20px',
+                      background: 'linear-gradient(90deg, #EAB308, #DC2626)',
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                      letterSpacing: '0.05em',
+                    }}>
+                    ₹ {order.totalPrice?.toLocaleString()}
+                  </span>
+                  <StatusBadge isPaid={order.isPaid} />
+                </div>
+
+                <p className="text-white/30 text-xs"
+                  style={{ fontFamily: "'Barlow', sans-serif" }}>
+                  📍 {order.shippingAddress?.city}, {order.shippingAddress?.country}
+                </p>
+
+                <p className="text-white/20 text-xs mt-1"
+                  style={{ fontFamily: "'Barlow', sans-serif" }}>
+                  {new Date(order.createdAt).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' })}
+                  {' · '}
+                  {order.orderItems.length} item{order.orderItems.length > 1 ? 's' : ''}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </>
+  )
 }
 
 export default MyOrderPage

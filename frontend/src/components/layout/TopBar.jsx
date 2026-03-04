@@ -1,63 +1,69 @@
-import React from "react";
-import { TbBrandMeta } from "react-icons/tb";
-import { IoLogoInstagram } from "react-icons/io";
-import { RiTwitterXLine } from "react-icons/ri";
+import React from "react"
+import { TbBrandMeta } from "react-icons/tb"
+import { IoLogoInstagram } from "react-icons/io"
+import { RiTwitterXLine } from "react-icons/ri"
 
 const TopBar = () => {
   return (
-    <div className="relative sticky top-0 z-50 bg-[#0F1E33]/90 backdrop-blur-2xl border-b border-white/5 shadow-[0_8px_40px_rgba(0,0,0,0.6)]">
+    <div className="relative sticky top-0 z-50 border-b border-white/6"
+      style={{ background: 'rgba(0,0,0,0.95)', backdropFilter: 'blur(20px)' }}>
 
-      {/* Gradient Accent Line */}
-      <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-purple-600 via-pink-500 to-purple-600 opacity-70"></div>
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600&display=swap');`}</style>
 
-      <div className="container mx-auto flex items-center justify-between py-3 px-6 text-gray-300">
+      {/* Top accent line */}
+      <div className="absolute top-0 left-0 right-0 h-px"
+        style={{ background: 'linear-gradient(90deg, transparent, #EAB308, #DC2626, transparent)' }} />
 
-        {/* Social Icons */}
-        <div className="hidden md:flex items-center space-x-6 text-lg">
+      <div className="container mx-auto flex items-center justify-between py-2.5 px-4 sm:px-6">
 
-          <a
-            href="#"
-            className="hover:text-purple-400 hover:scale-110 transition duration-300"
-          >
-            <TbBrandMeta />
-          </a>
-
-          <a
-            href="#"
-            className="hover:text-purple-400 hover:scale-110 transition duration-300"
-          >
-            <IoLogoInstagram />
-          </a>
-
-          <a
-            href="#"
-            className="hover:text-purple-400 hover:scale-110 transition duration-300"
-          >
-            <RiTwitterXLine />
-          </a>
-
+        {/* Social icons */}
+        <div className="hidden md:flex items-center gap-5">
+          {[
+            { href: '#', icon: <TbBrandMeta className="w-4 h-4" />, label: 'Meta' },
+            { href: '#', icon: <IoLogoInstagram className="w-4 h-4" />, label: 'Instagram' },
+            { href: '#', icon: <RiTwitterXLine className="w-3.5 h-3.5" />, label: 'Twitter' },
+          ].map(({ href, icon, label }) => (
+            <a key={label} href={href}
+              className="text-white/30 hover:text-yellow-400 transition-colors duration-300"
+              aria-label={label}>
+              {icon}
+            </a>
+          ))}
         </div>
 
         {/* Announcement */}
-        <div className="text-sm text-center flex-grow font-medium tracking-wide">
-          <span className="text-gray-400 animate-pulse">
-            Free Worldwide Shipping on Orders Over $100
+        <div className="flex-1 text-center">
+          <span className="text-xs tracking-widest uppercase"
+            style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 600 }}>
+            <span className="text-white/30">✦ &nbsp;</span>
+            <span style={{
+              background: 'linear-gradient(90deg, #EAB308, #DC2626)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>
+              Free Worldwide Shipping
+            </span>
+            <span className="text-white/30"> &nbsp;on Orders Over ₹999 &nbsp;✦</span>
           </span>
         </div>
 
-        {/* Contact */}
-        <div className="hidden md:block">
-          <a
-            href="tel:+918697544131"
-            className="px-4 py-1.5 rounded-full border border-purple-500/40 text-purple-300 hover:bg-purple-600 hover:text-white transition duration-300 text-xs font-semibold tracking-wide"
-          >
+        {/* Phone */}
+        <div className="hidden md:flex items-center">
+          <a href="tel:+918697544131"
+            className="text-xs font-semibold tracking-widest text-black px-4 py-1.5 transition-opacity hover:opacity-80"
+            style={{
+              fontFamily: "'Barlow', sans-serif",
+              background: 'linear-gradient(90deg, #EAB308, #DC2626)',
+              clipPath: 'polygon(5px 0%, 100% 0%, calc(100% - 5px) 100%, 0% 100%)',
+            }}>
             +91 86975 44131
           </a>
         </div>
 
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default TopBar;
+export default TopBar

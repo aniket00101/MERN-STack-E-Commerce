@@ -7,88 +7,211 @@ import { FiPhoneCall } from "react-icons/fi"
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-br 
-    from-[#0F1E33] via-[#0c1629] to-[#0a1424] 
-    text-gray-300 pt-16 pb-8 relative overflow-hidden">
+    <footer className="relative bg-black text-white pt-20 pb-8 overflow-hidden">
 
-      <div className="absolute top-[-10%] left-[-10%] w-[300px] h-[300px] 
-      bg-purple-600/20 rounded-full blur-[120px]"></div>
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap');`}</style>
 
-      <div className="absolute bottom-[-10%] right-[-10%] w-[300px] h-[300px] 
-      bg-blue-600/20 rounded-full blur-[120px]"></div>
+      {/* Background glows */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 60% 50% at 0% 100%, rgba(234,179,8,0.07) 0%, transparent 60%)' }} />
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 60% 50% at 100% 0%, rgba(220,38,38,0.06) 0%, transparent 60%)' }} />
 
-      <div className="container mx-auto grid grid-cols-1 
-      sm:grid-cols-2 lg:grid-cols-4 gap-10 px-4 relative z-10">
+      {/* Top accent line */}
+      <div className="absolute top-0 left-0 right-0 h-px"
+        style={{ background: 'linear-gradient(90deg, transparent, #EAB308, #DC2626, transparent)' }} />
 
-        <div>
+      <div className="container mx-auto px-4 relative z-10">
 
-          <h3 className="text-lg font-semibold text-white mb-4"> Newsletter </h3>
-
-          <p className="text-gray-400 mb-4 text-sm"> Be the first to discover new arrivals, exclusive drops, and special offers. </p>
-
-          <p className="font-medium text-sm text-purple-400 mb-6"> Sign up & get 10% off your first order. </p>
-
-          <form className="flex">
-
-            <input type="email" placeholder="Enter your email" className="p-3 w-full text-sm bg-white/5 border border-white/10 rounded-l-md focus:outline-none focus:ring-2 focus:ring-purple-500 placeholder-gray-500" required/>
-
-            <button type="submit" className="bg-gradient-to-r from-purple-600 to-blue-600 text-white px-6 py-3 text-sm rounded-r-md hover:opacity-90 
-              transition-all"> Subscribe </button>
-
-          </form>
-        </div>
-
-        <div>
-
-          <h3 className="text-lg font-semibold text-white mb-4"> Shop </h3>
-
-          <ul className="space-y-3 text-gray-400 text-sm">
-            <li><Link to="#" className="hover:text-purple-400 transition">Men's Top Wear</Link></li>
-            <li><Link to="#" className="hover:text-purple-400 transition">Women's Top Wear</Link></li>
-            <li><Link to="#" className="hover:text-purple-400 transition">Men's Bottom Wear</Link></li>
-            <li><Link to="#" className="hover:text-purple-400 transition">Women's Bottom Wear</Link></li>
-          </ul>
-        </div>
-
-        <div>
-
-          <h3 className="text-lg font-semibold text-white mb-4"> Support </h3>
-
-          <ul className="space-y-3 text-gray-400 text-sm">
-            <li><Link to="#" className="hover:text-purple-400 transition">Contact Us</Link></li>
-            <li><Link to="#" className="hover:text-purple-400 transition">About Us</Link></li>
-            <li><Link to="#" className="hover:text-purple-400 transition">FAQs</Link></li>
-            <li><Link to="#" className="hover:text-purple-400 transition">Features</Link></li>
-          </ul>
-        </div>
-
-        <div>
-
-          <h3 className="text-lg font-semibold text-white mb-4"> Follow Us </h3>
-
-          <div className="flex items-center space-x-5 mb-6">
-
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition"> <TbBrandMeta className="h-5 w-5" /> </a>
-
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition"> <IoLogoInstagram className="h-5 w-5" /> </a>
-
-            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition"> <RiTwitterXLine className="h-4 w-4" /> </a>
-
+        {/* Brand strip */}
+        <div className="mb-14 pb-10 border-b border-white/8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+          <div>
+            <h2 className="font-black leading-none mb-1"
+              style={{
+                fontFamily: "'Bebas Neue', sans-serif",
+                fontSize: 'clamp(36px, 5vw, 60px)',
+                background: 'linear-gradient(135deg, #ffffff 20%, #EAB308 60%, #DC2626 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                letterSpacing: '0.06em',
+              }}>
+              CompileTab
+            </h2>
+            <p className="text-white/35 text-xs tracking-widest uppercase"
+              style={{ fontFamily: "'Barlow', sans-serif" }}>
+              Style. Confidence. Identity.
+            </p>
           </div>
 
-          <p className="text-gray-400 text-sm mb-2"> Call Us </p>
+          {/* Social icons */}
+          <div className="flex items-center gap-3">
+            {[
+              { href: 'https://www.facebook.com', icon: <TbBrandMeta className="w-4 h-4" />, label: 'Meta' },
+              { href: 'https://www.instagram.com', icon: <IoLogoInstagram className="w-4 h-4" />, label: 'Instagram' },
+              { href: 'https://www.twitter.com', icon: <RiTwitterXLine className="w-4 h-4" />, label: 'Twitter' },
+            ].map(({ href, icon, label }) => (
+              <a key={label} href={href} target="_blank" rel="noopener noreferrer"
+                className="group flex items-center justify-center w-10 h-10 border border-white/10 text-white/40 hover:text-black transition-all duration-300"
+                style={{ background: 'rgba(255,255,255,0.03)' }}
+                onMouseEnter={e => e.currentTarget.style.background = 'linear-gradient(135deg, #EAB308, #DC2626)'}
+                onMouseLeave={e => e.currentTarget.style.background = 'rgba(255,255,255,0.03)'}
+              >
+                {icon}
+              </a>
+            ))}
+          </div>
+        </div>
 
-          <p className="text-white text-sm flex items-center"> <FiPhoneCall className="inline-block mr-2 text-purple-400" /> 8697544131 </p>
+        {/* Main grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+
+          {/* Newsletter */}
+          <div className="sm:col-span-2 lg:col-span-1">
+            <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 border border-yellow-500/30 bg-yellow-500/5">
+              <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
+              <span className="text-yellow-400 text-xs font-semibold tracking-widest uppercase"
+                style={{ fontFamily: "'Barlow', sans-serif" }}>
+                Newsletter
+              </span>
+            </div>
+
+            <p className="text-white/40 text-sm mb-3 leading-relaxed"
+              style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300 }}>
+              Be the first to discover new arrivals, exclusive drops, and special offers.
+            </p>
+
+            <p className="text-sm mb-5"
+              style={{
+                fontFamily: "'Barlow', sans-serif",
+                fontWeight: 600,
+                background: 'linear-gradient(90deg, #EAB308, #DC2626)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}>
+              Sign up & get 10% off your first order.
+            </p>
+
+            <form className="flex" onSubmit={e => e.preventDefault()}>
+              <input
+                type="email"
+                placeholder="Your email address"
+                className="flex-1 p-3 text-xs bg-white/5 border border-white/10 border-r-0 text-white placeholder-white/25 focus:outline-none focus:border-yellow-500/50"
+                style={{ fontFamily: "'Barlow', sans-serif" }}
+                required
+              />
+              <button
+                type="submit"
+                className="px-5 py-3 text-xs font-bold tracking-widest uppercase text-black transition-opacity hover:opacity-90 whitespace-nowrap"
+                style={{
+                  fontFamily: "'Barlow', sans-serif",
+                  background: 'linear-gradient(90deg, #EAB308, #DC2626)',
+                }}
+              >
+                Join
+              </button>
+            </form>
+          </div>
+
+          {/* Shop */}
+          <div>
+            <h3 className="font-black mb-5 tracking-wide"
+              style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '20px', letterSpacing: '0.1em' }}>
+              Shop
+            </h3>
+            <div className="mb-4 h-px w-8"
+              style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)' }} />
+            <ul className="space-y-3 text-white/40 text-sm" style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300 }}>
+              {["Men's Top Wear", "Women's Top Wear", "Men's Bottom Wear", "Women's Bottom Wear"].map(item => (
+                <li key={item}>
+                  <Link to="#"
+                    className="hover:text-yellow-400 transition-colors duration-300 flex items-center gap-2 group">
+                    <span className="w-0 group-hover:w-3 h-px transition-all duration-300"
+                      style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)', display: 'inline-block' }} />
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Support */}
+          <div>
+            <h3 className="font-black mb-5 tracking-wide"
+              style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '20px', letterSpacing: '0.1em' }}>
+              Support
+            </h3>
+            <div className="mb-4 h-px w-8"
+              style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)' }} />
+            <ul className="space-y-3 text-white/40 text-sm" style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300 }}>
+              {['Contact Us', 'About Us', 'FAQs', 'Features'].map(item => (
+                <li key={item}>
+                  <Link to="#"
+                    className="hover:text-red-400 transition-colors duration-300 flex items-center gap-2 group">
+                    <span className="w-0 group-hover:w-3 h-px transition-all duration-300"
+                      style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)', display: 'inline-block' }} />
+                    {item}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <h3 className="font-black mb-5 tracking-wide"
+              style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '20px', letterSpacing: '0.1em' }}>
+              Contact
+            </h3>
+            <div className="mb-4 h-px w-8"
+              style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)' }} />
+
+            <div className="flex items-center gap-3 p-4 border border-white/8"
+              style={{ background: 'rgba(255,255,255,0.03)' }}>
+              <div className="flex-shrink-0 w-9 h-9 flex items-center justify-center"
+                style={{ background: 'linear-gradient(135deg, #EAB308, #DC2626)' }}>
+                <FiPhoneCall className="text-black text-sm" />
+              </div>
+              <div>
+                <p className="text-white/30 text-xs tracking-widest uppercase mb-0.5"
+                  style={{ fontFamily: "'Barlow', sans-serif" }}>
+                  Call Us
+                </p>
+                <p className="text-white font-semibold text-sm"
+                  style={{ fontFamily: "'Barlow', sans-serif" }}>
+                  8697544131
+                </p>
+              </div>
+            </div>
+
+            <p className="mt-4 text-white/25 text-xs leading-relaxed"
+              style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300 }}>
+              Mon – Sat, 9am – 6pm IST
+            </p>
+          </div>
 
         </div>
+
+        {/* Bottom bar */}
+        <div className="border-t border-white/8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-white/25 text-xs tracking-widest"
+            style={{ fontFamily: "'Barlow', sans-serif" }}>
+            © 2026 CompileTab. All Rights Reserved.
+          </p>
+          <p className="text-xs tracking-widest"
+            style={{
+              fontFamily: "'Barlow', sans-serif",
+              background: 'linear-gradient(90deg, #EAB308, #DC2626)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}>
+            ✦ &nbsp;Crafted with passion
+          </p>
+        </div>
+
       </div>
-
-      <div className="container mx-auto mt-16 px-4 border-t border-white/10 pt-6 text-center relative z-10">
-
-        <p className="text-gray-500 text-sm"> © 2026 CompileTab. All Rights Reserved. </p>
-        
-      </div>
-
     </footer>
   )
 }

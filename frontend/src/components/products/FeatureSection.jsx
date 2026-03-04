@@ -1,66 +1,124 @@
 import React from 'react'
-import { 
-  HiArrowPathRoundedSquare, 
-  HiOutlineCreditCard, 
-  HiShoppingBag 
+import {
+  HiArrowPathRoundedSquare,
+  HiOutlineCreditCard,
+  HiShoppingBag
 } from 'react-icons/hi2'
+
+const features = [
+  {
+    icon: <HiShoppingBag className="text-2xl text-black" />,
+    title: 'Free International Shipping',
+    desc: 'Enjoy worldwide delivery on all orders above ₹999.',
+    tag: '01',
+  },
+  {
+    icon: <HiArrowPathRoundedSquare className="text-2xl text-black" />,
+    title: '45-Day Returns',
+    desc: 'Shop confidently with our hassle-free return policy.',
+    tag: '02',
+  },
+  {
+    icon: <HiOutlineCreditCard className="text-2xl text-black" />,
+    title: 'Secure Checkout',
+    desc: '100% encrypted and protected payment processing.',
+    tag: '03',
+  },
+]
 
 const FeatureSection = () => {
   return (
+    <section className="relative py-16 sm:py-24 px-4 bg-black overflow-hidden">
 
-    <section className="py-16 sm:py-20 px-4 bg-gradient-to-br from-[#0F1E33] via-[#0c1629] to-[#0a1424] relative overflow-hidden">
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap');`}</style>
 
-      <div className="absolute top-[-10%] left-[-10%] w-[300px] h-[300px] bg-purple-600/20 rounded-full blur-[120px]"></div>
+      {/* Background glow */}
+      <div className="absolute inset-0 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 80% 40% at 50% 100%, rgba(220,38,38,0.08) 0%, transparent 70%)' }} />
 
-      <div className="absolute bottom-[-10%] right-[-10%] w-[300px] h-[300px] bg-blue-600/20 rounded-full blur-[120px]"></div>
+      {/* Top accent line */}
+      <div className="absolute top-0 left-0 right-0 h-px"
+        style={{ background: 'linear-gradient(90deg, transparent, #EAB308, #DC2626, transparent)' }} />
 
       <div className="container mx-auto relative z-10">
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
-
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 transition duration-300 hover:scale-105 hover:shadow-xl">
-
-            <div className="flex justify-center mb-6">
-
-              <div className="p-4 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 shadow-lg"> <HiShoppingBag className="text-2xl text-white" /> </div>
-
-            </div>
-
-            <h4 className="text-white font-semibold text-lg mb-2 tracking-wide"> Free International Shipping </h4>
-
-            <p className="text-gray-300 text-sm"> Enjoy worldwide delivery on all orders above $100. </p>
-
+        {/* Section header */}
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 border border-red-500/30 bg-red-500/5">
+            <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+            <span className="text-red-400 text-xs font-semibold tracking-widest uppercase"
+              style={{ fontFamily: "'Barlow', sans-serif" }}>
+              Why Choose Us
+            </span>
           </div>
 
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 transition duration-300 hover:scale-105 hover:shadow-xl">
+          <h2 className="font-black leading-none"
+            style={{
+              fontFamily: "'Bebas Neue', sans-serif",
+              fontSize: 'clamp(36px, 5vw, 68px)',
+              background: 'linear-gradient(135deg, #ffffff 20%, #EAB308 60%, #DC2626 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              letterSpacing: '0.04em',
+            }}>
+            We Go the Extra Mile
+          </h2>
 
-            <div className="flex justify-center mb-6">
-
-              <div className="p-4 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 shadow-lg"> <HiArrowPathRoundedSquare className="text-2xl text-white" /> </div>
-
-            </div>
-
-            <h4 className="text-white font-semibold text-lg mb-2 tracking-wide"> 45-Day Returns </h4>
-
-            <p className="text-gray-300 text-sm"> Shop confidently with our hassle-free return policy. </p>
-
-          </div>
-
-          <div className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-8 transition duration-300 hover:scale-105 hover:shadow-xl">
-
-            <div className="flex justify-center mb-6">
-
-              <div className="p-4 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 shadow-lg"> <HiOutlineCreditCard className="text-2xl text-white" /> </div>
-
-            </div>
-
-            <h4 className="text-white font-semibold text-lg mb-2 tracking-wide"> Secure Checkout </h4>
-
-            <p className="text-gray-300 text-sm"> 100% encrypted and protected payment processing. </p>
-
-          </div>
+          <div className="mt-4 h-px w-16 mx-auto"
+            style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)' }} />
         </div>
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {features.map(({ icon, title, desc, tag }) => (
+            <div
+              key={tag}
+              className="group relative border border-white/8 p-8 transition-all duration-500 hover:-translate-y-1 overflow-hidden"
+              style={{ background: 'rgba(255,255,255,0.03)', backdropFilter: 'blur(12px)' }}
+            >
+              {/* Hover tint */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
+                style={{ background: 'linear-gradient(135deg, rgba(234,179,8,0.05) 0%, rgba(220,38,38,0.05) 100%)' }} />
+
+              {/* Top border glow on hover */}
+              <div className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)' }} />
+
+              {/* Ghost tag */}
+              <div className="absolute top-4 right-5 font-black text-white/4 group-hover:text-white/8 transition-colors duration-500 leading-none pointer-events-none"
+                style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '64px' }}>
+                {tag}
+              </div>
+
+              {/* Icon */}
+              <div className="inline-flex items-center justify-center w-12 h-12 mb-6"
+                style={{ background: 'linear-gradient(135deg, #EAB308, #DC2626)' }}>
+                {icon}
+              </div>
+
+              {/* Animated underline */}
+              <div className="mb-4 h-px w-8 group-hover:w-12 transition-all duration-500"
+                style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)' }} />
+
+              <h4 className="text-white font-bold text-lg mb-3 leading-snug"
+                style={{ fontFamily: "'Barlow', sans-serif", letterSpacing: '0.02em' }}>
+                {title}
+              </h4>
+
+              <p className="text-white/40 text-sm leading-relaxed"
+                style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300 }}>
+                {desc}
+              </p>
+            </div>
+          ))}
+        </div>
+
       </div>
+
+      {/* Bottom accent line */}
+      <div className="absolute bottom-0 left-0 right-0 h-px"
+        style={{ background: 'linear-gradient(90deg, transparent, #DC2626, #EAB308, transparent)' }} />
     </section>
   )
 }

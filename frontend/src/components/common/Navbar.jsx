@@ -82,7 +82,7 @@ const Navbar = () => {
 
             {user?.role === "admin" && (
               <Link to="/admin"
-                className="hidden sm:inline-flex text-xs font-bold tracking-widest uppercase text-black px-4 py-1.5 transition-opacity hover:opacity-80"
+                className="sm:inline-flex text-xs font-bold tracking-widest uppercase text-black px-4 py-1.5 transition-opacity hover:opacity-80"
                 style={{
                   fontFamily: "'Barlow', sans-serif",
                   background: 'linear-gradient(90deg, #EAB308, #DC2626)',

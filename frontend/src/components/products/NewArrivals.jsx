@@ -96,16 +96,13 @@ const NewArrivals = () => {
     return (
         <section className="relative py-20 px-4 lg:px-0 bg-black overflow-hidden">
 
-            {/* Google Fonts */}
             <style>{`@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap');`}</style>
 
-            {/* Background radial glow */}
             <div
                 className="absolute inset-0 pointer-events-none"
                 style={{ background: 'radial-gradient(ellipse 70% 50% at 50% 100%, rgba(220,38,38,0.1) 0%, transparent 70%)' }}
             />
 
-            {/* Top accent line */}
             <div
                 className="absolute top-0 left-0 right-0 h-px"
                 style={{ background: 'linear-gradient(90deg, transparent, #EAB308, #DC2626, transparent)' }}
@@ -113,12 +110,9 @@ const NewArrivals = () => {
 
             <div className="container mx-auto relative z-10">
 
-                {/* ── Header ── */}
                 <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-14">
 
-                    {/* Title block */}
                     <div>
-                        {/* Live badge */}
                         <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 border border-yellow-500/30 bg-yellow-500/5">
                             <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
                             <span
@@ -152,7 +146,6 @@ const NewArrivals = () => {
                         </p>
                     </div>
 
-                    {/* Controls */}
                     <div className="flex items-center gap-3 self-start sm:self-auto">
 
                         <Link
@@ -192,7 +185,6 @@ const NewArrivals = () => {
                     </div>
                 </div>
 
-                {/* ── Scroll Track ── */}
                 <div
                     ref={scrollRef}
                     onMouseDown={handleMouseDown}
@@ -208,7 +200,7 @@ const NewArrivals = () => {
                             className="relative group flex-shrink-0 overflow-hidden"
                             style={{ minWidth: 'min(100%, clamp(260px, 30vw, 340px))' }}
                         >
-                            {/* Image wrapper */}
+                            
                             <div className="relative overflow-hidden" style={{ height: '480px' }}>
 
                                 <img
@@ -219,16 +211,13 @@ const NewArrivals = () => {
                                     style={{ filter: 'brightness(0.9) contrast(1.05)' }}
                                 />
 
-                                {/* Dark gradient overlay */}
                                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
 
-                                {/* Hover red tint */}
                                 <div
                                     className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                                     style={{ background: 'linear-gradient(135deg, rgba(220,38,38,0.15) 0%, transparent 60%)' }}
                                 />
 
-                                {/* NEW badge */}
                                 <div
                                     className="absolute top-4 left-4 px-2.5 py-1 text-black font-bold tracking-widest uppercase"
                                     style={{
@@ -239,8 +228,6 @@ const NewArrivals = () => {
                                 >
                                     New
                                 </div>
-
-                                {/* Ghost index number */}
                                 <div
                                     className="absolute top-2 right-3 text-white/5 group-hover:text-white/10 transition-colors duration-500 font-black leading-none pointer-events-none"
                                     style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '72px' }}
@@ -248,10 +235,8 @@ const NewArrivals = () => {
                                     {String(index + 1).padStart(2, '0')}
                                 </div>
 
-                                {/* Card info */}
                                 <div className="absolute bottom-0 left-0 right-0 p-5">
 
-                                    {/* Animated accent line */}
                                     <div
                                         className="mb-3 h-px w-8 group-hover:w-14 transition-all duration-500"
                                         style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)' }}
@@ -295,8 +280,6 @@ const NewArrivals = () => {
                         </div>
                     ))}
                 </div>
-
-                {/* Mobile View All */}
                 <div className="mt-8 flex justify-center sm:hidden">
                     <Link
                         to="/collections/all"
@@ -313,7 +296,6 @@ const NewArrivals = () => {
 
             </div>
 
-            {/* Bottom accent line */}
             <div
                 className="absolute bottom-0 left-0 right-0 h-px"
                 style={{ background: 'linear-gradient(90deg, transparent, #DC2626, #EAB308, transparent)' }}

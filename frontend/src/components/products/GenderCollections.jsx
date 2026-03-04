@@ -301,14 +301,11 @@ const GenderCollections = () => {
             </p>
           </div>
 
-          {/* Horizontal rule */}
           <div style={{ height: '1px', background: 'linear-gradient(90deg, #EAB308 0%, #DC2626 40%, transparent 100%)', marginTop: '24px' }} />
         </div>
 
-        {/* Cards Grid */}
         <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row gap-4 lg:gap-6 cards-grid">
 
-          {/* Women's Card */}
           <div className="collection-card flex-1">
             <div className="card-inner card-height" style={{ height: '620px' }}>
               <img src={women} alt="Women collection" className="card-img absolute inset-0" style={{ height: '100%' }} />
@@ -316,7 +313,6 @@ const GenderCollections = () => {
               <div className="card-overlay-hover" />
               <div className="card-number">01</div>
 
-              {/* Bottom Content */}
               <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-10">
                 <div className="divider-line" />
                 <div className="card-badge mb-3">Women's Edit</div>
@@ -327,7 +323,6 @@ const GenderCollections = () => {
                   Confidence woven into every thread.
                 </p>
 
-                {/* Stats Row */}
                 <div className="flex gap-4 mb-6">
                   <div className="stat-item">
                     <div className="stat-num">340+</div>
@@ -347,7 +342,6 @@ const GenderCollections = () => {
             </div>
           </div>
 
-          {/* Men's Card */}
           <div className="collection-card flex-1">
             <div className="card-inner card-height" style={{ height: '620px' }}>
               <img src={mens} alt="Men collection" className="card-img absolute inset-0" style={{ height: '100%' }} />
@@ -355,7 +349,6 @@ const GenderCollections = () => {
               <div className="card-overlay-hover" />
               <div className="card-number">02</div>
 
-              {/* Bottom Content */}
               <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-10">
                 <div className="divider-line" />
                 <div className="card-badge mb-3">Men's Edit</div>
@@ -365,8 +358,6 @@ const GenderCollections = () => {
                 <p className="card-subtitle text-sm mb-6">
                   Power dressed for every moment.
                 </p>
-
-                {/* Stats Row */}
                 <div className="flex gap-4 mb-6">
                   <div className="stat-item">
                     <div className="stat-num">280+</div>
@@ -387,8 +378,6 @@ const GenderCollections = () => {
           </div>
 
         </div>
-
-        {/* Bottom tagline */}
         <div className="relative z-10 max-w-7xl mx-auto mt-10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="section-tagline text-xs text-white/25">
             Free shipping on orders over ₹999 &nbsp;·&nbsp; Easy 30-day returns

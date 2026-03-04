@@ -42,12 +42,10 @@ const Register = () => {
     <div className="min-h-screen flex items-center justify-center p-4 sm:p-6 bg-black relative overflow-hidden">
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap');`}</style>
 
-      {/* Background image */}
       <div className="absolute inset-0 opacity-10">
         <img src={register} alt="" className="w-full h-full object-cover blur-xl scale-110" />
       </div>
 
-      {/* Glows */}
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 60% 60% at 70% 50%, rgba(234,179,8,0.07) 0%, transparent 60%)' }} />
       <div className="absolute inset-0 pointer-events-none"
@@ -57,11 +55,9 @@ const Register = () => {
         <div className="lg:flex border border-white/8 overflow-hidden shadow-2xl"
           style={{ background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(24px)' }}>
 
-          {/* Top accent line */}
           <div className="absolute top-0 left-0 right-0 h-px"
             style={{ background: 'linear-gradient(90deg, transparent, #DC2626, #EAB308, transparent)' }} />
 
-          {/* ── Image panel (left on register) ── */}
           <div className="hidden lg:block lg:w-1/2 relative overflow-hidden">
             <img src={register} alt="Register"
               className="w-full h-full object-cover"
@@ -78,10 +74,8 @@ const Register = () => {
             </div>
           </div>
 
-          {/* ── Form ── */}
           <div className="w-full lg:w-1/2 p-8 sm:p-10 flex flex-col justify-center">
 
-            {/* Brand */}
             <div className="mb-8">
               <h1 className="font-black leading-none mb-1"
                 style={{

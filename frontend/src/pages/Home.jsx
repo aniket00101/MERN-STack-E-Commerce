@@ -38,20 +38,16 @@ const Home = () => {
       <GenderCollections />
       <NewArrivals />
 
-      {/* ── Best Seller Section ── */}
       <section className="relative bg-black py-16 sm:py-24 px-4 overflow-hidden">
 
-        {/* Background glow */}
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: 'radial-gradient(ellipse 60% 50% at 50% 0%, rgba(234,179,8,0.07) 0%, transparent 70%)' }} />
 
-        {/* Top accent line */}
         <div className="absolute top-0 left-0 right-0 h-px"
           style={{ background: 'linear-gradient(90deg, transparent, #EAB308, #DC2626, transparent)' }} />
 
         <div className="container mx-auto relative z-10">
 
-          {/* Section label */}
           <div className="flex flex-col items-center mb-12">
             <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 border border-red-500/30 bg-red-500/5">
               <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
@@ -88,21 +84,17 @@ const Home = () => {
           )}
         </div>
 
-        {/* Bottom accent line */}
         <div className="absolute bottom-0 left-0 right-0 h-px"
           style={{ background: 'linear-gradient(90deg, transparent, #DC2626, #EAB308, transparent)' }} />
       </section>
 
-      {/* ── Women's Collection Section ── */}
       <section className="relative bg-black py-16 sm:py-24 px-4 overflow-hidden">
 
-        {/* Background glow */}
         <div className="absolute inset-0 pointer-events-none"
           style={{ background: 'radial-gradient(ellipse 60% 40% at 50% 50%, rgba(220,38,38,0.07) 0%, transparent 70%)' }} />
 
         <div className="container mx-auto relative z-10">
 
-          {/* Section header */}
           <div className="text-center max-w-3xl mx-auto mb-14">
 
             <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 border border-yellow-500/30 bg-yellow-500/5">
@@ -139,7 +131,6 @@ const Home = () => {
           <ProductGrid products={products} loading={loading} error={error} />
         </div>
 
-        {/* Bottom accent line */}
         <div className="absolute bottom-0 left-0 right-0 h-px"
           style={{ background: 'linear-gradient(90deg, transparent, #EAB308, #DC2626, transparent)' }} />
       </section>

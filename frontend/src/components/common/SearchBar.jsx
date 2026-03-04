@@ -1,4 +1,4 @@
-// ── SearchBar.jsx ─────────────────────────────────────────────────────
+
 import React, { useState } from 'react'
 import { HiMagnifyingGlass, HiMiniXMark } from 'react-icons/hi2'
 import { useDispatch } from 'react-redux'
@@ -36,7 +36,6 @@ const SearchBar = () => {
 
           <div className="search-animate w-full max-w-2xl">
 
-            {/* Close */}
             <div className="flex justify-end mb-4">
               <button onClick={handleSearchToggle}
                 className="text-white/30 hover:text-white transition-colors p-1">
@@ -45,7 +44,7 @@ const SearchBar = () => {
             </div>
 
             <form onSubmit={handleSearch} className="relative">
-              {/* Accent top line */}
+        
               <div className="absolute top-0 left-0 right-0 h-px"
                 style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)' }} />
 

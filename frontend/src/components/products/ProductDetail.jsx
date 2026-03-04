@@ -81,13 +81,11 @@ const ProductDetail = ({ productId }) => {
 
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap');`}</style>
 
-      {/* Background glows */}
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 50% 60% at 0% 30%, rgba(234,179,8,0.07) 0%, transparent 60%)' }} />
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 50% 60% at 100% 70%, rgba(220,38,38,0.07) 0%, transparent 60%)' }} />
 
-      {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px"
         style={{ background: 'linear-gradient(90deg, transparent, #EAB308, #DC2626, transparent)' }} />
 
@@ -99,10 +97,8 @@ const ProductDetail = ({ productId }) => {
 
             <div className="flex flex-col lg:flex-row gap-10 lg:gap-14">
 
-              {/* ── Images ── */}
               <div className="lg:w-1/2 flex gap-4">
 
-                {/* Thumbnails */}
                 <div className="hidden md:flex flex-col gap-3">
                   {selectedProduct.images.map((img, index) => (
                     <button
@@ -122,7 +118,6 @@ const ProductDetail = ({ productId }) => {
                   ))}
                 </div>
 
-                {/* Main image */}
                 <div className="flex-1 relative overflow-hidden" style={{ maxHeight: '580px' }}>
                   <img
                     src={mainImage}
@@ -130,11 +125,10 @@ const ProductDetail = ({ productId }) => {
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                     style={{ minHeight: '400px', filter: 'brightness(0.95) contrast(1.05)' }}
                   />
-                  {/* Subtle tint */}
+                 
                   <div className="absolute inset-0 pointer-events-none"
                     style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 50%)' }} />
 
-                  {/* Discount badge */}
                   {discount > 0 && (
                     <div className="absolute top-4 left-4 text-black text-xs font-bold tracking-widest uppercase px-3 py-1"
                       style={{
@@ -148,10 +142,8 @@ const ProductDetail = ({ productId }) => {
                 </div>
               </div>
 
-              {/* ── Product Info ── */}
               <div className="lg:w-1/2 flex flex-col justify-start">
 
-                {/* Badge */}
                 <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 border border-yellow-500/30 bg-yellow-500/5 self-start">
                   <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
                   <span className="text-yellow-400 text-xs font-semibold tracking-widest uppercase"
@@ -160,7 +152,6 @@ const ProductDetail = ({ productId }) => {
                   </span>
                 </div>
 
-                {/* Name */}
                 <h1 className="font-black leading-none mb-5"
                   style={{
                     fontFamily: "'Bebas Neue', sans-serif",
@@ -174,7 +165,6 @@ const ProductDetail = ({ productId }) => {
                   {selectedProduct.name}
                 </h1>
 
-                {/* Price row */}
                 <div className="flex items-center gap-4 mb-6 pb-6 border-b border-white/8">
                   <span className="font-black"
                     style={{
@@ -196,13 +186,11 @@ const ProductDetail = ({ productId }) => {
                   )}
                 </div>
 
-                {/* Description */}
                 <p className="text-white/45 mb-8 leading-relaxed text-sm sm:text-base"
                   style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 300 }}>
                   {selectedProduct.description}
                 </p>
 
-                {/* Color */}
                 <div className="mb-6">
                   <p className="mb-3 text-xs font-semibold tracking-widest uppercase text-white/50"
                     style={{ fontFamily: "'Barlow', sans-serif" }}>
@@ -225,7 +213,6 @@ const ProductDetail = ({ productId }) => {
                   </div>
                 </div>
 
-                {/* Size */}
                 <div className="mb-6">
                   <p className="mb-3 text-xs font-semibold tracking-widest uppercase text-white/50"
                     style={{ fontFamily: "'Barlow', sans-serif" }}>
@@ -252,7 +239,6 @@ const ProductDetail = ({ productId }) => {
                   </div>
                 </div>
 
-                {/* Quantity */}
                 <div className="mb-8">
                   <p className="mb-3 text-xs font-semibold tracking-widest uppercase text-white/50"
                     style={{ fontFamily: "'Barlow', sans-serif" }}>
@@ -275,7 +261,6 @@ const ProductDetail = ({ productId }) => {
                   </div>
                 </div>
 
-                {/* Add to Cart */}
                 <button
                   disabled={isButtonDisabled}
                   onClick={handleAddToCart}
@@ -293,7 +278,6 @@ const ProductDetail = ({ productId }) => {
                   {isButtonDisabled ? "Adding to Cart…" : "Add to Cart →"}
                 </button>
 
-                {/* Product Details */}
                 <div className="mt-10 pt-6 border-t border-white/8">
                   <h3 className="font-black mb-5 tracking-wide"
                     style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '22px', letterSpacing: '0.1em' }}>
@@ -318,7 +302,6 @@ const ProductDetail = ({ productId }) => {
               </div>
             </div>
 
-            {/* Similar Products */}
             <div className="mt-20 pt-10 border-t border-white/8">
               <div className="flex flex-col items-center mb-12">
                 <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 border border-red-500/30 bg-red-500/5">

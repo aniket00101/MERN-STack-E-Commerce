@@ -1,4 +1,3 @@
-// ── CartContent.jsx ──────────────────────────────────────────────────
 import React from 'react'
 import { RiDeleteBin3Line } from "react-icons/ri"
 import { useDispatch } from 'react-redux'
@@ -27,18 +26,15 @@ const CartContent = ({ cart, userId, guestId }) => {
             className="group flex items-start gap-4 p-4 border border-white/8 transition-all duration-300 hover:border-yellow-500/20"
             style={{ background: 'rgba(255,255,255,0.02)' }}>
 
-            {/* Hover top border */}
             <div className="absolute left-0 top-0 w-0 group-hover:w-full h-px transition-all duration-500 pointer-events-none"
               style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)' }} />
 
-            {/* Image */}
             <div className="relative flex-shrink-0">
               <img src={product.image} alt={product.name}
                 className="w-16 h-20 object-cover"
                 style={{ filter: 'brightness(0.9) contrast(1.05)' }} />
             </div>
 
-            {/* Info */}
             <div className="flex-1 min-w-0">
               <h3 className="font-bold text-sm text-white/85 mb-1 truncate"
                 style={{ fontFamily: "'Barlow', sans-serif", letterSpacing: '0.02em' }}>
@@ -50,7 +46,6 @@ const CartContent = ({ cart, userId, guestId }) => {
                 Color: <span className="text-red-400/70">{product.color}</span>
               </p>
 
-              {/* Quantity */}
               <div className="flex items-center border border-white/10 w-fit"
                 style={{ background: 'rgba(255,255,255,0.03)' }}>
                 <button
@@ -70,7 +65,6 @@ const CartContent = ({ cart, userId, guestId }) => {
               </div>
             </div>
 
-            {/* Price + Delete */}
             <div className="flex flex-col items-end gap-3 flex-shrink-0">
               <span className="font-black"
                 style={{

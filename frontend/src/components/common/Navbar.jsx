@@ -42,17 +42,14 @@ const Navbar = () => {
         .nav-link:hover::after { width: 100%; }
       `}</style>
 
-      {/* Main Nav */}
       <nav className="sticky top-0 z-40 border-b border-white/8"
         style={{ background: 'rgba(0,0,0,0.92)', backdropFilter: 'blur(20px)' }}>
 
-        {/* Bottom accent glow */}
         <div className="absolute bottom-0 left-0 right-0 h-px"
           style={{ background: 'linear-gradient(90deg, transparent, rgba(234,179,8,0.4), rgba(220,38,38,0.4), transparent)' }} />
 
         <div className="container mx-auto flex items-center justify-between py-4 px-4 sm:px-6">
 
-          {/* Logo */}
           <Link to="/" className="font-black leading-none transition-opacity hover:opacity-80"
             style={{
               fontFamily: "'Bebas Neue', sans-serif",
@@ -66,7 +63,6 @@ const Navbar = () => {
             NexMart
           </Link>
 
-          {/* Desktop nav links */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map(({ to, label }) => (
               <Link key={label} to={to}
@@ -77,7 +73,6 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Actions */}
           <div className="flex items-center gap-4">
 
             {user?.role === "admin" && (
@@ -126,17 +121,14 @@ const Navbar = () => {
 
       <CartDrawer drawerOPen={drawerOpen} toogleCartDrawer={toggleCartDrawer} />
 
-      {/* Mobile nav overlay */}
       <div
         onClick={toggleNavDrawer}
         className={`fixed inset-0 bg-black/60 backdrop-blur-sm z-40 transition-opacity duration-300 md:hidden ${navDrawerOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
       />
 
-      {/* Mobile nav drawer */}
       <div className={`fixed top-0 left-0 w-3/4 sm:w-1/2 h-full z-50 transform transition-transform duration-300 border-r border-white/8 ${navDrawerOpen ? "translate-x-0" : "-translate-x-full"}`}
         style={{ background: 'rgba(0,0,0,0.97)', backdropFilter: 'blur(20px)' }}>
 
-        {/* Top accent line */}
         <div className="absolute top-0 left-0 right-0 h-px"
           style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)' }} />
 

@@ -19,19 +19,28 @@ const adminorderRoute = require("./routes/adminorderRoutes");
 
 const app = express();
 
-// Middleware
 app.use(express.json());
-app.use(cors());
 
-// Connect Database BEFORE routes
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://ecommercefrontenddeploy-one.vercel.app"
+];
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
 connectDB();
 
-// Root Route
 app.get("/", (req, res) => {
   res.send("Welcome to NextMart API");
 });
 
-// Routes
 app.use("/api/users", userRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
@@ -43,7 +52,6 @@ app.use("/api/admin/users", adminRoutes);
 app.use("/api/admin/products", productAdminRoute);
 app.use("/api/admin/orders", adminorderRoute);
 
-// IMPORTANT: Railway provides PORT automatically
 const PORT = process.env.PORT || 9000;
 
 app.listen(PORT, () => {

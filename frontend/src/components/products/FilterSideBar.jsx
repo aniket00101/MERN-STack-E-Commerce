@@ -73,7 +73,7 @@ const FilterSideBar = () => {
       material: params.material ? params.material.split(",") : [],
       brand: params.brand ? params.brand.split(",") : [],
       minPrice: params.minPrice || 0,
-      maxPrice: params.maxPrice || 100,
+      maxPrice: params.maxPrice || 3000, // ✅ Fixed: was 100
     };
     setFilter(updatedFilter);
     setPriceRange([0, updatedFilter.maxPrice]);
@@ -81,7 +81,7 @@ const FilterSideBar = () => {
 
   const clearFilters = () => {
     setFilter(defaultFilter);
-    setPriceRange([0, 100]);
+    setPriceRange([0, 3000]); // ✅ Fixed: was 100
     setSearchParams({});
   };
 

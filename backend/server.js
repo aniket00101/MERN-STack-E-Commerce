@@ -1,46 +1,51 @@
-const express = require("express")
-const cors = require("cors")
-const dotenv = require("dotenv")
-const app = express()
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
 
-const connectDB = require("./config/db.js")
-const userRoutes = require("./routes/userRoutes.js")
-const productRoutes = require("./routes/ProductRoutes.js")
-const cartRoutes = require("./routes/cartRoutes.js")
-const checkoutRoutes = require("./routes/checkoutRoutes.js")
-const orderRoutes = require("./routes/orderRoutes.js")
-const uploadRoutes = require("./routes/uploadRoutes.js")
-const subscribedRoutes = require("./routes/subscriberRoutes.js")
-const adminRoutes = require("./routes/adminRoutes.js")
-const productAdminRoute = require("./routes/ProductRoutes.js")
-const adminorderRoute = require("./routes/adminorderRoutes.js")
+dotenv.config();
 
-app.use(express.json())
-app.use(cors())
-dotenv.config()
+const connectDB = require("./config/db");
 
-const port = process.env.PORT || 3000
+const userRoutes = require("./routes/userRoutes");
+const productRoutes = require("./routes/ProductRoutes");
+const cartRoutes = require("./routes/cartRoutes");
+const checkoutRoutes = require("./routes/checkoutRoutes");
+const orderRoutes = require("./routes/orderRoutes");
+const uploadRoutes = require("./routes/uploadRoutes");
+const subscribedRoutes = require("./routes/subscriberRoutes");
+const adminRoutes = require("./routes/adminRoutes");
+const productAdminRoute = require("./routes/ProductRoutes");
+const adminorderRoute = require("./routes/adminorderRoutes");
 
-connectDB()
+const app = express();
 
+// Middleware
+app.use(express.json());
+app.use(cors());
+
+// Connect Database BEFORE routes
+connectDB();
+
+// Root Route
 app.get("/", (req, res) => {
-    res.send("Welcome to NextMart API");
+  res.send("Welcome to NextMart API");
 });
 
-app.use("/api/users", userRoutes)
-app.use("/api/products", productRoutes)
-app.use("/api/cart", cartRoutes)
-app.use("/api/checkout", checkoutRoutes)
-app.use("/api/orders", orderRoutes)
-app.use("/api/upload", uploadRoutes)
-app.use("/api/subscribe", subscribedRoutes)
-app.use("/api/admin/users", adminRoutes)
-app.use("/api/admin/products", productAdminRoute)
-app.use("/api/admin/orders", adminorderRoute)
+// Routes
+app.use("/api/users", userRoutes);
+app.use("/api/products", productRoutes);
+app.use("/api/cart", cartRoutes);
+app.use("/api/checkout", checkoutRoutes);
+app.use("/api/orders", orderRoutes);
+app.use("/api/upload", uploadRoutes);
+app.use("/api/subscribe", subscribedRoutes);
+app.use("/api/admin/users", adminRoutes);
+app.use("/api/admin/products", productAdminRoute);
+app.use("/api/admin/orders", adminorderRoute);
 
-app.listen(port, () => {
-    console.log(`Server is running on port ${port}`)
-})
+// IMPORTANT: Railway provides PORT automatically
+const PORT = process.env.PORT || 9000;
 
-// username: dasaniket971_db_user
-// password: 2APWq440WmWW9Kn1
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});

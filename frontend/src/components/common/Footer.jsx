@@ -36,7 +36,7 @@ const Footer = () => {
                 backgroundClip: 'text',
                 letterSpacing: '0.06em',
               }}>
-              CompileTab
+              NextMart
             </h2>
             <p className="text-white/35 text-xs tracking-widest uppercase"
               style={{ fontFamily: "'Barlow', sans-serif" }}>

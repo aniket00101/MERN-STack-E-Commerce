@@ -18,11 +18,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=39",
+        url: "https://www.oxfordshirt.co.uk/cdn/shop/files/button-down-oxford-shirt-blue-827213.jpg?v=1732897709&width=1946",
         altText: "Classic Oxford Button-Down Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=40",
+        url: "https://content.josephturner.co.uk/Original/55127d09_mens-blue-buttondown-oxford-shirt-mcbdoxblu_1.jpg",
         altText: "Classic Oxford Button-Down Shirt Back View",
       },
     ],
@@ -46,11 +46,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=41",
+        url: "https://handcmediastorage.blob.core.windows.net/productimages/SE/SEPMV014-G01-132687-800px-1040px.jpg",
         altText: "Slim-Fit Stretch Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=42",
+        url: "https://www.optimized-rlmedia.io/is/image/PoloGSI/s7-1492983_alternate10?$rl_4x5_pdp$",
         altText: "Slim-Fit Stretch Shirt Back View",
       },
     ],
@@ -74,11 +74,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=43",
+        url: "https://spykar.com/cdn/shop/products/6qb10TbZmF-MSHDS2BC121MID-BLUE-_1.webp?v=1692622433",
         altText: "Casual Denim Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=44",
+        url: "https://www.urbanofashion.com/cdn/shop/files/shirtden-uf45-lblue-3.jpg?v=1706701687",
         altText: "Casual Denim Shirt Back View",
       },
     ],
@@ -102,11 +102,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=45",
+        url: "https://api.etonshirts.com/v1/retail/image/1620/bynder/a5cec570-21a8-4cf8-a1ac-543b705d879b/light-green-palm-tree-resort-shirt_2024-01-30T122549297Z.webp",
         altText: "Printed Resort Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=1",
+        url: "https://api.etonshirts.com/v1/retail/image/1620/bynder/175e1a9a-2469-4e6d-b1ce-d64915b7540f/light-green-palm-tree-resort-shirt_2024-01-30T122050128Z.webp",
         altText: "Printed Resort Shirt Back View",
       },
     ],
@@ -130,11 +130,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=47",
+        url: "https://image.hm.com/assets/hm/bf/4b/bf4b0de3f60dec873830261f9525e6aeafb65809.jpg?imwidth=2160",
         altText: "Slim-Fit Easy-Iron Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=2",
+        url: "https://tse3.mm.bing.net/th/id/OIP.hY78TmdBV61kUhnQapIckQHaLG?pid=Api&P=0&h=180",
         altText: "Slim-Fit Easy-Iron Shirt Front View",
       },
     ],
@@ -158,11 +158,11 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=3",
+        url: "https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_100,w_1080/v1/assets/images/27647964/2024/2/16/5c689dad-f895-4d52-a469-636eda2f53b01708095815208PowerlookMenStripedHenleyNeckPocketsT-shirt1.jpg",
         altText: "Polo T-Shirt Front View",
       },
       {
-        url: "https://picsum.photos/500/500?random=4",
+        url: "https://i.pinimg.com/originals/da/a2/64/daa26418fbe0200feb3852a8da47dad1.jpg",
         altText: "Polo T-Shirt Back View",
       },
     ],
@@ -186,7 +186,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=5",
+        url: "https://i.pinimg.com/originals/5e/30/1b/5e301b20967afee6f82c624495f5a153.jpg",
         altText: "Oversized Graphic T-Shirt Front View",
       },
     ],
@@ -210,7 +210,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=6",
+        url: "https://i5.walmartimages.com/seo/Men-s-Long-Sleeves-Henley-Shirts-Regular-Fit-Button-Down-Casual-Cotton-T-Shirt-Soft-Comfy-Shirt-with-Pocket_50cf3911-7366-4117-bdec-c67b39e497e7.398573c28aa4d7f3db7aac2710b378dc.jpeg",
         altText: "Regular-Fit Henley Shirt Front View",
       },
     ],
@@ -234,7 +234,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=7",
+        url: "https://i5.walmartimages.com/seo/George-Men-s-and-Big-Men-s-Long-Sleeve-Thermal-Henley-Shirt_749fe094-ef7d-491a-b677-635bfddec7bb.c7983fb8f08ae9463b56bac940b1e7e2.jpeg",
         altText: "Long-Sleeve Thermal Tee Front View",
       },
     ],
@@ -258,7 +258,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=8",
+        url: "https://oldnavy.gap.com/webcontent/0054/752/495/cn54752495.jpg",
         altText: "V-Neck Classic T-Shirt Front View",
       },
     ],
@@ -282,7 +282,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=9",
+        url: "https://i5.walmartimages.com/seo/Wyobmus-Men-s-Stretch-Cargo-Pants-Slim-Fit-Joggers-Casual-Sport-Pants-Trousers-for-Men-Workout-Running-Jogging-Olive-Green_4796544f-6302-48cc-881e-e2438f21d02e.c906094da6816c5273b5aad4d6a42b6b.jpeg",
         altText: "Slim Fit Joggers Front View",
       },
     ],
@@ -306,7 +306,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=10",
+        url: "https://triprindia.com/cdn/shop/collections/cargo-track-jogger-pant-for-men.jpg?v=1710221877",
         altText: "Cargo Joggers Front View",
       },
     ],
@@ -330,7 +330,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=11",
+        url: "https://oldnavy.gap.com/webcontent/0052/668/126/cn52668126.jpg",
         altText: "Tapered Sweatpants Front View",
       },
     ],
@@ -354,7 +354,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=12",
+        url: "https://www.tistabene.com/cdn/shop/files/MJS-0323A.jpg?crop=region&crop_height=1440&crop_left=57&crop_top=0&crop_width=964&v=1701933775&width=1080",
         altText: "Denim Jeans Front View",
       },
     ],
@@ -378,7 +378,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=13",
+        url: "https://oldnavy.gap.com/webcontent/0019/833/361/cn19833361.jpg",
         altText: "Chino Pants Front View",
       },
     ],
@@ -402,7 +402,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=14",
+        url: "https://cdnc.lystit.com/photos/size/12054510221-Navy-e0ccb747-.jpeg",
         altText: "Track Pants Front View",
       },
     ],
@@ -426,7 +426,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=15",
+        url: "https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_100,w_1080/v1/assets/images/29967212/2024/6/14/93f25a2b-2135-41d2-802a-0e8abcd2a55b1718361868896FUBARMenSlimFitTrousers1.jpg",
         altText: "Slim Fit Trousers Front View",
       },
     ],
@@ -450,7 +450,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=16",
+        url: "https://i5.walmartimages.com/seo/Ayfxijin-Cargo-Pants-for-Men-Men-s-Fashion-Casual-Camouflage-Cargo-Pockets-dry-Tactics-Full-Length-Pants_f5f35fad-c8e1-4203-a07c-84611f0c8e99.f29614cbc7db4b25a9541c24005e2bbf.jpeg",
         altText: "Cargo Pants Front View",
       },
     ],
@@ -474,7 +474,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=17",
+        url: "https://i5.walmartimages.com/asr/82f52721-f139-4aab-8e53-4f65910ae0ba.fbde52819e14c2c42e59a7715539f95a.jpeg",
         altText: "Relaxed Fit Sweatpants Front View",
       },
     ],
@@ -498,7 +498,7 @@ const products = [
     gender: "Men",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=18",
+        url: "https://i5.walmartimages.com/seo/Men-s-Lee-Total-Freedom-Relaxed-Fit-Comfort-Stretch-Pants-Navy_252a188f-f072-44b2-892b-2d86a4fac587.f1c13a1ada79f7171cdff8dd941fa278.jpeg",
         altText: "Formal Dress Pants Front View",
       },
     ],
@@ -522,7 +522,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=19",
+        url: "https://oldnavy.gap.com/webcontent/0028/693/190/cn28693190.jpg",
         altText: "High-Waist Skinny Jeans",
       },
     ],
@@ -546,7 +546,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=20",
+        url: "https://cdn-img.prettylittlething.com/e/d/5/e/ed5e9081514981d16a657060957b9657d70acf78_cmo0942_1.jpg",
         altText: "Wide-Leg Trousers Front View",
       },
     ],
@@ -570,7 +570,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=21",
+        url: "http://d3d71ba2asa5oz.cloudfront.net/12012238/images/cmy201012web.jpg",
         altText: "Stretch Leggings Front View",
       },
     ],
@@ -594,7 +594,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=22",
+        url: "https://cdn.shopify.com/s/files/1/0752/5289/products/SSGJ2133_1024x1024@2x.jpg?v=1590658351",
         altText: "Pleated Midi Skirt Front View",
       },
     ],
@@ -618,7 +618,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=23",
+        url: "https://assets0.mirraw.com/images/8190809/PLZ6_(5)_zoom.jpg?1597078328",
         altText: "Flared Palazzo Pants Front View",
       },
     ],
@@ -642,7 +642,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=24",
+        url: "http://shopduer.com/cdn/shop/files/WJTS1200-Live-Free-High-Rise-Jogger-Sail-Amy_3384-ECOM.jpg?v=1706974987&width=1080",
         altText: "High-Rise Joggers Front View",
       },
     ],
@@ -666,7 +666,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=25",
+        url: "https://n.nordstrommedia.com/it/a7b4ffc8-d921-444a-98a5-a271350346dc.jpeg?h=365&w=240&dpr=2",
         altText: "Paperbag Waist Shorts Front View",
       },
     ],
@@ -690,7 +690,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=26",
+        url: "https://www.womenfitness.net/shop/wp-content/uploads/2023/01/Summer-Jean-Shorts-1.jpg",
         altText: "Stretch Denim Shorts Front View",
       },
     ],
@@ -714,7 +714,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=27",
+        url: "https://i5.walmartimages.com/seo/kamemir-Culottes-Wide-Leg-Culottes-for-Women-High-Waist-Wide-Leg-Culottes-Culottes-Dark-Gray-XXL_21660ae4-4a40-4ac7-b461-202c2c2e6b2f.10066e129c11e300d95ba72bfcf185c0.jpeg",
         altText: "Culottes Front View",
       },
     ],
@@ -738,7 +738,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=28",
+        url: "https://assets.myntassets.com/h_200,w_200,c_fill,g_auto/h_1440,q_100,w_1080/v1/assets/images/30199824/2024/7/12/2200c7aa-7deb-4ae7-a2d8-77632b0e30281720789462106DressBerryWomenClassicPleatedTrousers1.jpg",
         altText: "Classic Pleated Trousers Front View",
       },
     ],
@@ -762,7 +762,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=29",
+        url: "https://shop.mango.com/assets/rcs/pics/static/T8/fotos/S/87010363_37.jpg?imwidth=1024&imdensity=1&ts=1730363685733",
         altText: "Knitted Cropped Top",
       },
     ],
@@ -786,7 +786,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=30",
+        url: "https://i.pinimg.com/originals/6d/35/6f/6d356f8d57abebba6fb345ce30096422.jpg",
         altText: "Boho Floral Blouse",
       },
     ],
@@ -810,7 +810,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=31",
+        url: "https://i5.walmartimages.com/asr/305f34eb-5c6a-4ccc-a2aa-88858135cebb_1.e4c7b58744820cbdde119f09642baa5f.jpeg",
         altText: "Casual T-Shirt",
       },
     ],
@@ -834,7 +834,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=32",
+        url: "https://i5.walmartimages.com/seo/ppyoung-Womens-Off-Shoulder-Long-Sleeve-Blouses-Casual-Tunic-Tops_d5fcae53-7b57-44d0-acde-f1b88c963ed2.e69d80b1625439a1b849efb2735688f5.jpeg",
         altText: "Off-Shoulder Top",
       },
     ],
@@ -858,7 +858,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=33",
+        url: "https://n.nordstrommedia.com/id/sr3/e16a8b30-0754-4504-8b9e-d72eaf78bf21.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196&dpr=3",
         altText: "Lace-Trimmed Cami Top",
       },
     ],
@@ -882,7 +882,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=34",
+        url: "https://m.media-amazon.com/images/I/71QMsrys-lL._AC_SL1500_.jpg",
         altText: "Graphic Print Tee",
       },
     ],
@@ -906,7 +906,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=35",
+        url: "https://anninc.scene7.com/is/image/LO/754149_4899_B2?$315x363$,https://anninc.scene7.com/is/image/LO/754149_4899_D1?$315x363$",
         altText: "Ribbed Long-Sleeve Top",
       },
     ],
@@ -930,7 +930,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=36",
+        url: "https://cdn-img.prettylittlething.com/7/a/7/0/7a70fd6783948edc3fd06a61d0b311f7fe4eb4ea_cnf8251_1.jpg",
         altText: "Ruffle-Sleeve Blouse",
       },
     ],
@@ -954,7 +954,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=37",
+        url: "https://images.ctfassets.net/c8luxa5v52ih/2yctkW5U0tqsGGspIDBmho/828b4a4a4bf436fa13a45978b3fa9e53/NEW_Women-s_Classic_Long_Sleeve_Button-Up_Shirt1.jpg",
         altText: "Classic Button-Up Shirt",
       },
     ],
@@ -978,7 +978,7 @@ const products = [
     gender: "Women",
     images: [
       {
-        url: "https://picsum.photos/500/500?random=38",
+        url: "https://m.media-amazon.com/images/I/71ASR03DFeL._AC_SL1500_.jpg",
         altText: "V-Neck Wrap Top",
       },
     ],

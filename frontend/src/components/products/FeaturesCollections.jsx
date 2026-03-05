@@ -8,13 +8,11 @@ const FeaturesCollections = () => {
 
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap');`}</style>
 
-      {/* Background glows */}
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 50% 60% at 0% 50%, rgba(234,179,8,0.07) 0%, transparent 60%)' }} />
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 50% 60% at 100% 50%, rgba(220,38,38,0.07) 0%, transparent 60%)' }} />
 
-      {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px"
         style={{ background: 'linear-gradient(90deg, transparent, #EAB308, #DC2626, transparent)' }} />
 
@@ -23,14 +21,11 @@ const FeaturesCollections = () => {
         <div className="flex flex-col-reverse lg:flex-row items-stretch border border-white/10 overflow-hidden shadow-2xl"
           style={{ background: 'rgba(255,255,255,0.03)', backdropFilter: 'blur(20px)' }}>
 
-          {/* Left: Content */}
           <div className="lg:w-1/2 p-8 sm:p-12 lg:p-16 flex flex-col justify-center text-center lg:text-left relative">
 
-            {/* Vertical accent line (desktop only) */}
             <div className="hidden lg:block absolute right-0 top-8 bottom-8 w-px"
               style={{ background: 'linear-gradient(to bottom, transparent, #EAB308, #DC2626, transparent)' }} />
 
-            {/* Badge */}
             <div className="inline-flex items-center gap-2 mb-6 px-3 py-1 border border-yellow-500/30 bg-yellow-500/5 self-center lg:self-start">
               <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
               <span className="text-yellow-400 text-xs font-semibold tracking-widest uppercase"
@@ -53,7 +48,6 @@ const FeaturesCollections = () => {
               Designed for Comfort.<br />Built for Confidence.
             </h2>
 
-            {/* Accent line */}
             <div className="mb-6 h-px w-16 mx-auto lg:mx-0"
               style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)' }} />
 
@@ -63,7 +57,6 @@ const FeaturesCollections = () => {
               refined statement pieces, our collections are designed to move with you — every day, everywhere.
             </p>
 
-            {/* Stats row */}
             <div className="flex items-center justify-center lg:justify-start gap-8 mb-10">
               {[['500+', 'Styles'], ['4.9★', 'Rating'], ['Free', 'Shipping']].map(([num, label]) => (
                 <div key={label} className="text-center lg:text-left">
@@ -87,7 +80,6 @@ const FeaturesCollections = () => {
               ))}
             </div>
 
-            {/* CTA */}
             <div className="flex justify-center lg:justify-start">
               <Link
                 to="/collections/all"
@@ -103,7 +95,6 @@ const FeaturesCollections = () => {
             </div>
           </div>
 
-          {/* Right: Image */}
           <div className="lg:w-1/2 w-full relative overflow-hidden" style={{ minHeight: '360px' }}>
             <img
               src={featured}
@@ -111,10 +102,10 @@ const FeaturesCollections = () => {
               className="w-full h-full object-cover"
               style={{ minHeight: '360px', filter: 'brightness(0.85) contrast(1.05)' }}
             />
-            {/* Overlay tint */}
+            
             <div className="absolute inset-0"
               style={{ background: 'linear-gradient(135deg, rgba(234,179,8,0.08) 0%, transparent 50%, rgba(220,38,38,0.1) 100%)' }} />
-            {/* Left fade into content on desktop */}
+           
             <div className="hidden lg:block absolute inset-y-0 left-0 w-16"
               style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.4), transparent)' }} />
           </div>
@@ -122,7 +113,7 @@ const FeaturesCollections = () => {
         </div>
       </div>
 
-      {/* Bottom accent line */}
+
       <div className="absolute bottom-0 left-0 right-0 h-px"
         style={{ background: 'linear-gradient(90deg, transparent, #DC2626, #EAB308, transparent)' }} />
     </section>

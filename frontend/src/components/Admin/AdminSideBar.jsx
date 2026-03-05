@@ -26,11 +26,9 @@ const AdminSideBar = () => {
     <div className="flex flex-col h-full p-5">
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap');`}</style>
 
-      {/* Top accent line */}
       <div className="h-px mb-6 w-full"
         style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)' }} />
 
-      {/* Brand */}
       <Link to="/admin" className="mb-1">
         <span className="font-black leading-none"
           style={{
@@ -49,7 +47,6 @@ const AdminSideBar = () => {
         Admin Panel
       </p>
 
-      {/* Nav */}
       <nav className="flex flex-col gap-1 flex-1">
         {navItems.map(({ to, icon, label }) => (
           <NavLink
@@ -74,7 +71,6 @@ const AdminSideBar = () => {
         ))}
       </nav>
 
-      {/* Logout */}
       <div className="mt-6 pt-6 border-t border-white/8">
         <button
           onClick={handleLogout}

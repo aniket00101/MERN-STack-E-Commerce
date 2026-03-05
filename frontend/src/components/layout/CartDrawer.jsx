@@ -22,21 +22,17 @@ const CartDrawer = ({ drawerOPen, toogleCartDrawer }) => {
     <>
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap');`}</style>
 
-      {/* Backdrop */}
       <div
         onClick={toogleCartDrawer}
         className={`fixed inset-0 bg-black/70 backdrop-blur-sm z-40 transition-opacity duration-300 ${drawerOPen ? "opacity-100 visible" : "opacity-0 invisible"}`}
       />
 
-      {/* Drawer */}
       <div className={`fixed top-0 right-0 h-screen w-full sm:w-3/4 md:w-[28rem] lg:w-[32rem] z-50 flex flex-col transform transition-transform duration-300 border-l border-white/8 ${drawerOPen ? "translate-x-0" : "translate-x-full"}`}
         style={{ background: 'rgba(0,0,0,0.97)', backdropFilter: 'blur(20px)' }}>
 
-        {/* Top accent line */}
         <div className="absolute top-0 left-0 right-0 h-px"
           style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)' }} />
 
-        {/* Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-white/8 flex-shrink-0">
           <div className="flex items-center gap-3">
             <h2 className="font-black tracking-wide text-white"
@@ -59,7 +55,6 @@ const CartDrawer = ({ drawerOPen, toogleCartDrawer }) => {
           </button>
         </div>
 
-        {/* Cart items */}
         <div className="flex-1 overflow-y-auto px-4 sm:px-5 py-4 space-y-0"
           style={{ scrollbarWidth: 'thin', scrollbarColor: '#EAB308 transparent' }}>
           {cart?.products?.length > 0 ? (
@@ -75,7 +70,6 @@ const CartDrawer = ({ drawerOPen, toogleCartDrawer }) => {
           )}
         </div>
 
-        {/* Footer */}
         {cart?.products?.length > 0 && (
           <div className="px-5 py-5 border-t border-white/8 flex-shrink-0"
             style={{ background: 'rgba(0,0,0,0.6)' }}>

@@ -89,19 +89,16 @@ const Checkout = () => {
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap');`}</style>
 
-      {/* Background glows */}
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 50% 60% at 0% 30%, rgba(234,179,8,0.06) 0%, transparent 60%)' }} />
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 50% 60% at 100% 70%, rgba(220,38,38,0.06) 0%, transparent 60%)' }} />
 
-      {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px"
         style={{ background: 'linear-gradient(90deg, transparent, #EAB308, #DC2626, transparent)' }} />
 
       <div className="max-w-7xl mx-auto py-14 px-4 sm:px-6 relative z-10">
 
-        {/* Page title */}
         <div className="mb-12 text-center">
           <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 border border-yellow-500/30 bg-yellow-500/5">
             <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
@@ -125,13 +122,11 @@ const Checkout = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-          {/* ── Left: Form ── */}
           <div className="border border-white/8 p-6 sm:p-8"
             style={{ background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(20px)' }}>
 
             <form onSubmit={handleCreateCheckout}>
 
-              {/* Contact */}
               <div className="mb-8 pb-8 border-b border-white/8">
                 <h3 className="font-black mb-5 tracking-wide flex items-center gap-3"
                   style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '20px', letterSpacing: '0.1em' }}>
@@ -146,7 +141,6 @@ const Checkout = () => {
                 </div>
               </div>
 
-              {/* Delivery */}
               <div className="mb-8">
                 <h3 className="font-black mb-5 tracking-wide flex items-center gap-3"
                   style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '20px', letterSpacing: '0.1em' }}>
@@ -207,7 +201,6 @@ const Checkout = () => {
                 </div>
               </div>
 
-              {/* CTA */}
               <div className="mt-6">
                 {!checkoutId ? (
                   <button type="submit"
@@ -240,7 +233,6 @@ const Checkout = () => {
             </form>
           </div>
 
-          {/* ── Right: Order Summary ── */}
           <div className="border border-white/8 p-6 sm:p-8 h-fit"
             style={{ background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(20px)' }}>
 
@@ -286,7 +278,6 @@ const Checkout = () => {
               ))}
             </div>
 
-            {/* Totals */}
             <div className="space-y-3">
               {[['Subtotal', `₹ ${cart.totalPrice?.toLocaleString()}`], ['Shipping', 'Free']].map(([label, val]) => (
                 <div key={label} className="flex justify-between text-sm">
@@ -313,7 +304,6 @@ const Checkout = () => {
               </div>
             </div>
 
-            {/* Trust badges */}
             <div className="mt-6 pt-5 border-t border-white/8 grid grid-cols-3 gap-3">
               {['🔒 Secure Pay', '🚚 Free Ship', '↩ 45-Day Returns'].map((badge) => (
                 <div key={badge} className="text-center py-2 border border-white/6 text-xs text-white/30 tracking-wide"

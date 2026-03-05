@@ -10,13 +10,11 @@ const TopBar = () => {
 
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600&display=swap');`}</style>
 
-      {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px"
         style={{ background: 'linear-gradient(90deg, transparent, #EAB308, #DC2626, transparent)' }} />
 
       <div className="container mx-auto flex items-center justify-between py-2.5 px-4 sm:px-6">
 
-        {/* Social icons */}
         <div className="hidden md:flex items-center gap-5">
           {[
             { href: '#', icon: <TbBrandMeta className="w-4 h-4" />, label: 'Meta' },
@@ -31,7 +29,6 @@ const TopBar = () => {
           ))}
         </div>
 
-        {/* Announcement */}
         <div className="flex-1 text-center">
           <span className="text-xs tracking-widest uppercase"
             style={{ fontFamily: "'Barlow', sans-serif", fontWeight: 600 }}>
@@ -48,7 +45,6 @@ const TopBar = () => {
           </span>
         </div>
 
-        {/* Phone */}
         <div className="hidden md:flex items-center">
           <a href="tel:+918697544131"
             className="text-xs font-semibold tracking-widest text-black px-4 py-1.5 transition-opacity hover:opacity-80"

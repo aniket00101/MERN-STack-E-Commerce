@@ -57,7 +57,6 @@ const MyOrderPage = () => {
     <>
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap');`}</style>
 
-      {/* Desktop table */}
       <div className="hidden md:block overflow-x-auto">
         <table className="min-w-full text-sm">
           <thead>
@@ -137,8 +136,6 @@ const MyOrderPage = () => {
           </tbody>
         </table>
       </div>
-
-      {/* Mobile cards */}
       <div className="md:hidden space-y-4">
         {orders.map((order) => (
           <div
@@ -147,7 +144,6 @@ const MyOrderPage = () => {
             className="border border-white/8 p-4 cursor-pointer transition-all duration-300 hover:border-yellow-500/20 relative overflow-hidden"
             style={{ background: 'rgba(255,255,255,0.02)' }}
           >
-            {/* Top hover line */}
             <div className="absolute top-0 left-0 right-0 h-px"
               style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)' }} />
 

@@ -37,7 +37,6 @@ const UserManagment = () => {
     <div className="min-h-screen bg-black text-white p-4 sm:p-6 lg:p-10">
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap');`}</style>
 
-      {/* Header */}
       <div className="mb-10">
         <div className="inline-flex items-center gap-2 mb-3 px-3 py-1 border border-yellow-500/30 bg-yellow-500/5">
           <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
@@ -52,7 +51,6 @@ const UserManagment = () => {
       {loading && <div className="flex items-center gap-3 py-4"><div className="w-5 h-5 border-2 border-yellow-400 border-t-transparent rounded-full animate-spin" /></div>}
       {error && <p className="text-red-400 text-sm mb-4" style={{ fontFamily: "'Barlow', sans-serif" }}>Error: {error}</p>}
 
-      {/* Add User form */}
       <div className="border border-white/8 p-6 sm:p-8 mb-10 relative overflow-hidden" style={{ background: 'rgba(255,255,255,0.02)' }}>
         <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)' }} />
 
@@ -99,7 +97,6 @@ const UserManagment = () => {
         </form>
       </div>
 
-      {/* All users */}
       <div className="flex items-center gap-3 mb-6">
         <div className="w-1 h-5" style={{ background: 'linear-gradient(to bottom, #EAB308, #DC2626)' }} />
         <h3 className="font-black tracking-wide" style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '20px', letterSpacing: '0.1em' }}>

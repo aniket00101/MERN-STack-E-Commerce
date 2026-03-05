@@ -81,11 +81,10 @@ const FilterSideBar = () => {
 
   const clearFilters = () => {
     setFilter(defaultFilter);
-    setPriceRange([0, 3000]); // ✅ Fixed: was 100
+    setPriceRange([0, 3000]); 
     setSearchParams({});
   };
 
-  // Section header component
   const SectionHead = ({ label }) => (
     <div className="flex items-center gap-3 mb-4">
       <span className="font-black tracking-widest uppercase"
@@ -142,7 +141,6 @@ const FilterSideBar = () => {
         className="filter-scrollbar border border-white/8 p-5 text-white h-screen overflow-y-auto"
         style={{ background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(20px)' }}
       >
-        {/* Header */}
         <div className="flex items-center justify-between mb-7 pb-4 border-b border-white/8">
           <div className="flex items-center gap-2">
             <div className="w-1 h-5" style={{ background: 'linear-gradient(to bottom, #EAB308, #DC2626)' }} />
@@ -164,7 +162,6 @@ const FilterSideBar = () => {
           </button>
         </div>
 
-        {/* Category */}
         <div className="mb-7">
           <SectionHead label="Category" />
           <div className="space-y-2">
@@ -196,7 +193,6 @@ const FilterSideBar = () => {
           </div>
         </div>
 
-        {/* Gender */}
         <div className="mb-7">
           <SectionHead label="Gender" />
           <div className="flex gap-2">
@@ -223,7 +219,6 @@ const FilterSideBar = () => {
           </div>
         </div>
 
-        {/* Colors */}
         <div className="mb-7">
           <SectionHead label="Color" />
           <div className="flex flex-wrap gap-2.5">
@@ -244,7 +239,6 @@ const FilterSideBar = () => {
           </div>
         </div>
 
-        {/* Size */}
         <div className="mb-7">
           <SectionHead label="Size" />
           <div className="flex flex-wrap gap-2">
@@ -271,7 +265,6 @@ const FilterSideBar = () => {
           </div>
         </div>
 
-        {/* Material */}
         <div className="mb-7">
           <SectionHead label="Material" />
           <div className="space-y-2">
@@ -302,7 +295,6 @@ const FilterSideBar = () => {
           </div>
         </div>
 
-        {/* Brand */}
         <div className="mb-7">
           <SectionHead label="Brand" />
           <div className="space-y-2">
@@ -333,7 +325,6 @@ const FilterSideBar = () => {
           </div>
         </div>
 
-        {/* Price Range */}
         <div className="mb-8">
           <SectionHead label="Price Range" />
           <div className="flex items-center justify-between mb-3">

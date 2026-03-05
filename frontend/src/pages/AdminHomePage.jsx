@@ -49,17 +49,14 @@ const AdminHomePage = () => {
     <div className="min-h-screen bg-black text-white p-4 sm:p-6 lg:p-10 relative overflow-hidden">
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap');`}</style>
 
-      {/* Glows */}
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 50% 50% at 0% 0%, rgba(234,179,8,0.06) 0%, transparent 60%)' }} />
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 40% 40% at 100% 100%, rgba(220,38,38,0.05) 0%, transparent 60%)' }} />
 
-      {/* Top accent */}
       <div className="absolute top-0 left-0 right-0 h-px"
         style={{ background: 'linear-gradient(90deg, transparent, #EAB308, #DC2626, transparent)' }} />
 
-      {/* Page header */}
       <div className="mb-10">
         <div className="inline-flex items-center gap-2 mb-3 px-3 py-1 border border-yellow-500/30 bg-yellow-500/5">
           <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
@@ -92,14 +89,13 @@ const AdminHomePage = () => {
         <p className="text-red-400 text-sm" style={{ fontFamily: "'Barlow', sans-serif" }}>Error: {ordersError}</p>
       ) : (
         <>
-          {/* Stats */}
+          
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-14">
             <StatCard label="Total Revenue" value={`₹ ${(totalSales || 0).toFixed(0)}`} accent="yellow" />
             <StatCard label="Total Orders" value={totalOrders} link="/admin/orders" linkLabel="Manage Orders" accent="red" />
             <StatCard label="Total Products" value={products.length} link="/admin/products" linkLabel="Manage Products" accent="yellow" />
           </div>
 
-          {/* Recent orders */}
           <div>
             <div className="flex items-center gap-3 mb-7">
               <div className="w-1 h-5" style={{ background: 'linear-gradient(to bottom, #EAB308, #DC2626)' }} />
@@ -119,7 +115,6 @@ const AdminHomePage = () => {
                     <div className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                       style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)' }} />
 
-                    {/* Header row */}
                     <div className="flex justify-between items-start mb-4 gap-3">
                       <p className="font-mono text-xs text-white/30 break-all">
                         #{order._id.slice(-8).toUpperCase()}

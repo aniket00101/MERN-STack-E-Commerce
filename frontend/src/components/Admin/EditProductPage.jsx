@@ -144,7 +144,6 @@ const EditProductPage = () => {
             </div>
           </div>
 
-          {/* Image upload */}
           <div>
             <FieldLabel>Product Images</FieldLabel>
             <div className="border border-white/10 border-dashed p-6 text-center cursor-pointer hover:border-yellow-500/40 transition-colors"

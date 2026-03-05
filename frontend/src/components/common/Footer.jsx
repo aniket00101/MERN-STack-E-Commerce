@@ -11,19 +11,16 @@ const Footer = () => {
 
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap');`}</style>
 
-      {/* Background glows */}
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 60% 50% at 0% 100%, rgba(234,179,8,0.07) 0%, transparent 60%)' }} />
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 60% 50% at 100% 0%, rgba(220,38,38,0.06) 0%, transparent 60%)' }} />
 
-      {/* Top accent line */}
       <div className="absolute top-0 left-0 right-0 h-px"
         style={{ background: 'linear-gradient(90deg, transparent, #EAB308, #DC2626, transparent)' }} />
 
       <div className="container mx-auto px-4 relative z-10">
 
-        {/* Brand strip */}
         <div className="mb-14 pb-10 border-b border-white/8 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
           <div>
             <h2 className="font-black leading-none mb-1"
@@ -44,7 +41,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Social icons */}
           <div className="flex items-center gap-3">
             {[
               { href: 'https://www.facebook.com', icon: <TbBrandMeta className="w-4 h-4" />, label: 'Meta' },
@@ -63,10 +59,8 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Main grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
 
-          {/* Newsletter */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="inline-flex items-center gap-2 mb-4 px-3 py-1 border border-yellow-500/30 bg-yellow-500/5">
               <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
@@ -114,7 +108,6 @@ const Footer = () => {
             </form>
           </div>
 
-          {/* Shop */}
           <div>
             <h3 className="font-black mb-5 tracking-wide"
               style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '20px', letterSpacing: '0.1em' }}>
@@ -136,7 +129,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Support */}
           <div>
             <h3 className="font-black mb-5 tracking-wide"
               style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '20px', letterSpacing: '0.1em' }}>
@@ -158,7 +150,6 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Contact */}
           <div>
             <h3 className="font-black mb-5 tracking-wide"
               style={{ fontFamily: "'Bebas Neue', sans-serif", fontSize: '20px', letterSpacing: '0.1em' }}>
@@ -193,7 +184,6 @@ const Footer = () => {
 
         </div>
 
-        {/* Bottom bar */}
         <div className="border-t border-white/8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-white/25 text-xs tracking-widest"
             style={{ fontFamily: "'Barlow', sans-serif" }}>

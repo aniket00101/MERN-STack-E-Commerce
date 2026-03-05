@@ -28,19 +28,16 @@ const Profile = () => {
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
       <style>{`@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;600;700&display=swap');`}</style>
 
-      {/* Background glows */}
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 50% 60% at 0% 0%, rgba(234,179,8,0.07) 0%, transparent 60%)' }} />
       <div className="absolute inset-0 pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 50% 60% at 100% 100%, rgba(220,38,38,0.06) 0%, transparent 60%)' }} />
 
-      {/* Top accent */}
       <div className="absolute top-0 left-0 right-0 h-px"
         style={{ background: 'linear-gradient(90deg, transparent, #EAB308, #DC2626, transparent)' }} />
 
       <div className="container mx-auto px-4 py-12 relative z-10">
 
-        {/* Page title */}
         <div className="mb-10">
           <div className="inline-flex items-center gap-2 mb-3 px-3 py-1 border border-yellow-500/30 bg-yellow-500/5">
             <span className="w-1.5 h-1.5 rounded-full bg-yellow-400 animate-pulse" />
@@ -65,16 +62,13 @@ const Profile = () => {
 
         <div className="flex flex-col lg:flex-row gap-6">
 
-          {/* ── Sidebar ── */}
           <div className="w-full lg:w-64 flex-shrink-0">
             <div className="border border-white/8 p-6"
               style={{ background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(20px)' }}>
 
-              {/* Top accent */}
               <div className="h-px mb-6 w-full"
                 style={{ background: 'linear-gradient(90deg, #EAB308, #DC2626)' }} />
 
-              {/* Avatar */}
               <div className="flex flex-col items-center text-center mb-6">
                 <div className="w-20 h-20 flex items-center justify-center text-black text-2xl font-black mb-4"
                   style={{
@@ -96,7 +90,6 @@ const Profile = () => {
                 </p>
               </div>
 
-              {/* Info rows */}
               <div className="space-y-3 mb-6 pb-6 border-b border-white/8">
                 {[
                   ['Member Since', new Date().getFullYear()],
@@ -111,7 +104,6 @@ const Profile = () => {
                 ))}
               </div>
 
-              {/* Logout */}
               <button
                 onClick={handleLogout}
                 className="w-full py-3 text-xs font-bold tracking-widest uppercase text-white border border-red-500/30 transition-all duration-300 hover:bg-red-500/10 hover:border-red-400"
@@ -121,7 +113,6 @@ const Profile = () => {
             </div>
           </div>
 
-          {/* ── Orders panel ── */}
           <div className="flex-1 border border-white/8"
             style={{ background: 'rgba(255,255,255,0.02)', backdropFilter: 'blur(20px)' }}>
 
